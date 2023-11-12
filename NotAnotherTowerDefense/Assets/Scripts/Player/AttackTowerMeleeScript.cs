@@ -12,6 +12,8 @@ public class AttackTowerMeleeScript : MonoBehaviour
 
     public GameObject MainTower;
 
+    public BoxCollider2D rangeCollider;
+
     private ProjectileScript projectileScript;
     private GameObject targetEnemy = null;
 
@@ -33,6 +35,7 @@ public class AttackTowerMeleeScript : MonoBehaviour
 
             if (targetEnemy != null)
             {
+                Debug.Log("about to hit enemy");
                 HitEnemy();
 
                 shootTimer = towerDecorator.GetAttackSpeed;
@@ -56,7 +59,13 @@ public class AttackTowerMeleeScript : MonoBehaviour
 
     protected void HitEnemy()
     {
+        Enemy iDamage = targetEnemy.GetComponent<Enemy>();
 
+        if(iDamage != null)
+        {
+            Debug.Log("idamage not null");
+            iDamage.UpdateHealth();
+        }
     }
 
 
@@ -68,12 +77,19 @@ public class AttackTowerMeleeScript : MonoBehaviour
         {
             Debug.Log("found Target");
         }
+        else
+        {
+           // Debug.Log("no found Target");
+        }
     }
 
     protected GameObject FindClosestTarget()
     {
         GameObject[] enemies;
         enemies = GameObject.FindGameObjectsWithTag("Enemies");
+
+        //Debug.Log(enemies.Length);
+
         GameObject closestEnemy = null;
         Vector3 startPosition = MainTower.transform.position;
 
@@ -81,8 +97,10 @@ public class AttackTowerMeleeScript : MonoBehaviour
 
         foreach (GameObject enemy in enemies)
         {
-            if(this.GetComponent<BoxCollider2D>().bounds.Intersects(enemy.GetComponent<BoxCollider2D>().bounds))
+            if(rangeCollider.bounds.Intersects(enemy.GetComponent<BoxCollider2D>().bounds))
             {
+                //Debug.Log("in collider");
+
                 Vector3 vecDistance = enemy.transform.position - startPosition;
                 float currentDistance = vecDistance.magnitude;
                 if (currentDistance < distance)
