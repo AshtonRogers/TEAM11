@@ -84,25 +84,25 @@ public class TownScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemies")
-        {
-            Debug.Log("Objective Damage");
+        //if (collision.gameObject.tag == "Enemies")
+        //{
+        //    Debug.Log("Objective Damage");
 
-            Enemy iDamage = collision.gameObject.GetComponent<Enemy>();
+        //    Enemy iDamage = collision.gameObject.GetComponent<Enemy>();
 
-            if (iDamage != null)
-            {
-                int dealDamage;
-                Debug.Log("idamage not null");
-                dealDamage = iDamage.DealDamage();
+        //    if (iDamage != null)
+        //    {
+        //        int dealDamage;
+        //        Debug.Log("idamage not null");
+        //        dealDamage = iDamage.DealDamage();
 
-                level.TakeDamage(dealDamage);
-            }
+        //        level.TakeDamage(dealDamage);
+        //    }
 
-            //take damage
+        //    //take damage
 
-            Destroy(collision.gameObject);
+        //    Destroy(collision.gameObject);
             
-        }
+        //}
     }
 }

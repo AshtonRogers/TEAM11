@@ -38,12 +38,12 @@ public class EnemyStrong : MonoBehaviour, Enemy
         transform.position = Vector2.MoveTowards(transform.position, m_TowerRef.transform.position, m_Speed * Time.deltaTime); //Moving the Enemy towarads the tower - PG
     }
 
-    public int UpdateHealth()
+    public int UpdateHealth(int _IncomingDmg)
     {
         if (m_Health > 0)
         {
-            Debug.Log(m_Health - 1);
-            return m_Health - 1;
+            Debug.Log(m_Health - _IncomingDmg);
+            return m_Health - _IncomingDmg;
         }
         else
         {

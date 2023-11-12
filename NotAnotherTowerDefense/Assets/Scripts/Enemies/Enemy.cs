@@ -11,7 +11,7 @@ public interface Enemy //Enemy Interface for the Factory Desgin Pattern - PG
     public int Damage { get; set; }
 
     public int DealDamage(); 
-    public int UpdateHealth();
+    public int UpdateHealth(int _IncomingDmg);
     public void MoveCharacter();
     public void Initialize();
 }

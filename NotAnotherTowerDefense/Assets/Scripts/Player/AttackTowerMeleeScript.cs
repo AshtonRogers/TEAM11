@@ -78,7 +78,7 @@ public class AttackTowerMeleeScript : MonoBehaviour
         if(iDamage != null)
         {
             Debug.Log("idamage not null");
-            iDamage.UpdateHealth();
+            iDamage.UpdateHealth(towerDecorator.GetDamage);
         }
     }
 
