@@ -5,12 +5,19 @@ using UnityEngine;
 public class EnemyFast : MonoBehaviour, Enemy
 {
     //Enemy Varibles - PG
+    public string EnemyName = "Enemy Fast";
     public int m_Value = 2;
     public int m_Health = 3;
     public float m_Speed = 2.5f;
     public int m_Damage = 5;
     private GameObject m_TowerRef;
     private Transform m_Transform;
+
+    public int Value { get => m_Value; set => m_Value = value; }
+    public int Health { get => m_Health; set => m_Health = value; }
+    public float Speed { get => m_Speed; set => m_Speed = value; }
+    public int Damage { get => m_Damage; set => m_Damage = value; }
+    public string EnemyType { get => EnemyName; set => EnemyName = value; }
 
     public int DealDamage()
     {
@@ -22,9 +29,11 @@ public class EnemyFast : MonoBehaviour, Enemy
         m_Transform.position = Vector2.MoveTowards(m_Transform.position, m_TowerRef.transform.position, m_Speed * Time.deltaTime); //Moving the Enemy towarads the tower - PG
     }
 
-    public void SetTowerRef()
+    public void Initialize()
     {
         m_TowerRef = GameObject.Find("PlayerTower"); //Setting the tower refrence 
+        gameObject.tag = "Enemies"; //Setting the Gameobject Tag
+        gameObject.name = EnemyName; //Setting the GameObject Name
     }
 
     public int UpdateHealth()

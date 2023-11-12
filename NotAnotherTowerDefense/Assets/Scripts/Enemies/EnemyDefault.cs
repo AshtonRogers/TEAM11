@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyDefault : MonoBehaviour, Enemy
 {
     //Enemy Varibles - PG
+    public string EnemyName = "Enemy Default";
     public int m_Value = 1;
     public int m_Health = 6;
     public float m_Speed  = 1;
@@ -12,9 +13,21 @@ public class EnemyDefault : MonoBehaviour, Enemy
     private GameObject m_TowerRef;
     private Transform m_Transform;
 
+    public int Value { get => m_Value; set => m_Value = value; }
+    public int Health { get => m_Health; set => m_Health = value; }
+    public float Speed { get => m_Speed; set => m_Speed = value; }
+    public int Damage { get => m_Damage; set => m_Damage = value; }
+    public string EnemyType { get => EnemyName; set => EnemyName = value; }
     public int DealDamage() 
     {
         throw new System.NotImplementedException(); //Damage Here
+    }
+
+    public void Initialize()
+    {
+        m_TowerRef = GameObject.Find("PlayerTower"); //Setting the tower refrence 
+        gameObject.tag = "Enemies"; //Setting the Gameobject Tag
+        gameObject.name = EnemyName; //Setting the GameObject Name
     }
 
     public void MoveCharacter() 
@@ -22,10 +35,6 @@ public class EnemyDefault : MonoBehaviour, Enemy
         m_Transform.position = Vector2.MoveTowards(m_Transform.position, m_TowerRef.transform.position, m_Speed * Time.deltaTime); //Moving the Enemy towarads the tower 
     }
 
-    public void SetTowerRef() 
-    {
-        m_TowerRef = GameObject.Find("PlayerTower"); //Setting the tower refrence 
-    }
 
     public int UpdateHealth() 
     {
@@ -42,7 +51,7 @@ public class EnemyDefault : MonoBehaviour, Enemy
     // Start is called before the first frame update
     void Start()
     {
-        SetTowerRef();
+
     }
 
     // Update is called once per frame

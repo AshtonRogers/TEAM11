@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-    EnemyFactory EnemyFactory;
-    public GameObject m_EmptyEnemyPrefab;
-
     public Transform m_EnemySpawn;
- 
+    [SerializeField] EnemyFactory[] m_EnemyFactories;
 
     public int m_StartWave = 1;
     public int m_CurrentWave;
@@ -41,12 +38,12 @@ public class Level : MonoBehaviour
 
                 //EnemyFactory.getEnemy()
                 //EnemyFactory.getEnemy("DEFAULT")
-                GameObject newEnemy = EnemyFactory.getEnemy("DEFAULT");
+                //GameObject newEnemy = EnemyFactory.getEnemy("DEFAULT");
 
-                Instantiate(m_EmptyEnemyPrefab, m_EnemySpawn.transform.position, m_EnemySpawn.rotation); //Creating the Enemy 
-                newEnemy.tag = "Enemies"; //Setting the New Enemies Tag 
+                //GameObject newEnemy = Instantiate(m_EmptyEnemyPrefab, m_EnemySpawn.transform.position, m_EnemySpawn.rotation); //Creating the Enemy 
+                //newEnemy.tag = "Enemies"; //Setting the New Enemies Tag 
 
-                newEnemy = EnemyFactory.getEnemy("DEFAULT");
+                //newEnemy = EnemyFactory.getEnemy("DEFAULT");
                 //newEnemy.AddComponent < EnemyFactory.getEnemy("DEFAULT") >
                 //newEnemy.AddComponent<EnemyDefault>();
 
