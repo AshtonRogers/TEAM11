@@ -69,8 +69,11 @@ public class TownScript : MonoBehaviour
 
             if (iDamage != null)
             {
+                int dealDamage;
                 Debug.Log("idamage not null");
-                iDamage.DealDamage();
+                dealDamage = iDamage.DealDamage();
+
+                level.TakeDamage(dealDamage);
             }
 
             //take damage

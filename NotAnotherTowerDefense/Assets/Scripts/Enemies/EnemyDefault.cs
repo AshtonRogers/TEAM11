@@ -21,7 +21,7 @@ public class EnemyDefault : MonoBehaviour, Enemy
     public string EnemyType { get => EnemyName; set => EnemyName = value; }
     public int DealDamage() 
     {
-        throw new System.NotImplementedException(); //Damage Here
+        return m_Damage; //Damage Here
     }
 
     public void Initialize()

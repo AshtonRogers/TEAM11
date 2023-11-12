@@ -22,7 +22,7 @@ public class EnemyFast : MonoBehaviour, Enemy
 
     public int DealDamage()
     {
-        throw new System.NotImplementedException();
+        return m_Damage;
     }
 
     public void MoveCharacter()

@@ -10,10 +10,7 @@ public class Level : MonoBehaviour
 
     public int m_StartWave = 1;
     public int m_CurrentWave;
-
-    //Currency - PG 
-    public int m_Gold;
-    public int m_Silver;
+    public int m_ObjectiveHealth = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -43,14 +40,19 @@ public class Level : MonoBehaviour
             }
         //} 
     }
-    void SetEnemyPath()
-    {
 
+    public void TakeDamage(int damage)
+    {
+        m_ObjectiveHealth -= damage;
+
+        if(m_ObjectiveHealth <= 0)
+        {
+            //endgame
+        }
     }
 
-    void GenerateCurrency()
+    void SetEnemyPath()
     {
-        //Changer pet 10 levels 
 
     }
 }
