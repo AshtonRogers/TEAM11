@@ -14,7 +14,6 @@ public class AttackTowerMeleeScript : MonoBehaviour
 
     public BoxCollider2D rangeCollider;
 
-    private ProjectileScript projectileScript;
     private GameObject targetEnemy = null;
 
     AttackTowerDecorator towerDecorator = new BaseTower();
@@ -29,27 +28,42 @@ public class AttackTowerMeleeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (shootTimer <= 0)
+        if (isActive)
         {
-            SearchForTarget();
-
-            if (targetEnemy != null)
+            if (shootTimer <= 0)
             {
-                Debug.Log("about to hit enemy");
-                HitEnemy();
+                SearchForTarget();
 
-                shootTimer = towerDecorator.GetAttackSpeed;
+                if (targetEnemy != null)
+                {
+                    Debug.Log("about to hit enemy");
+                    HitEnemy();
+
+                    shootTimer = towerDecorator.GetAttackSpeed;
+                }
+            }
+            else
+            {
+                shootTimer -= Time.deltaTime;
             }
         }
-        else
-        {
-            shootTimer -= Time.deltaTime;
-        }
+    }
 
+    public void PayCost()
+    {
         if (costTimer <= 0)
         {
             //pay cost
-            costTimer = maxCostTimer;
+            if (MainTower.GetComponent<TownScript>().UpKeepAmount(towerDecorator.GetResourceCost))
+            {
+                costTimer = maxCostTimer;
+                isActive = true;
+            }
+            else
+            {
+                isActive = false;
+                costTimer = maxCostTimer;
+            }
         }
         else
         {

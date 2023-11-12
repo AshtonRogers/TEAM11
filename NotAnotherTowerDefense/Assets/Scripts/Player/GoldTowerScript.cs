@@ -8,7 +8,7 @@ public class GoldTowerScript : MonoBehaviour
 
     float maxCostTimer = 1.0f;
     float costTimer;
-    bool isActive;
+    bool isActive = true;
 
     public GameObject MainTower;
 
@@ -24,20 +24,36 @@ public class GoldTowerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (payTimer <= 0)
+        if (isActive)
         {
-            //pay town amount
-            payTimer = towerDecorator.GetGenerationSpeed;
+            if (payTimer <= 0)
+            {
+                //pay town amount
+                MainTower.GetComponent<TownScript>().IncreaseSilver(towerDecorator.GetAmount);
+                payTimer = towerDecorator.GetGenerationSpeed;
+            }
+            else
+            {
+                payTimer -= Time.deltaTime;
+            }
         }
-        else
-        {
-            payTimer -= Time.deltaTime;
-        }
+    }
 
+    public void PayCost()
+    {
         if (costTimer <= 0)
         {
             //pay cost
-            costTimer = maxCostTimer;
+            if (MainTower.GetComponent<TownScript>().UpKeepAmount(towerDecorator.GetResourceCost))
+            {
+                costTimer = maxCostTimer;
+                isActive = true;
+            }
+            else
+            {
+                isActive = false;
+                costTimer = maxCostTimer;
+            }
         }
         else
         {

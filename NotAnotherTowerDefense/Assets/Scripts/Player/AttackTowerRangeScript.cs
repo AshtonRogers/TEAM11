@@ -8,12 +8,11 @@ public class AttackTowerRangeScript : MonoBehaviour
 
     float maxCostTimer = 1.0f;
     float costTimer;
-    bool isActive;
+    bool isActive = true;
 
     public GameObject Projectiles;
     public GameObject MainTower;
 
-    private ProjectileScript projectileScript;
     private GameObject targetEnemy = null;
 
     AttackTowerDecorator towerDecorator = new BaseTower();
@@ -23,32 +22,46 @@ public class AttackTowerRangeScript : MonoBehaviour
     {
         shootTimer = towerDecorator.GetAttackSpeed;
         costTimer = maxCostTimer;
-        projectileScript = Projectiles.GetComponent<ProjectileScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(shootTimer <= 0)
+        if (isActive)
         {
-            SearchForTarget();
-
-            if(targetEnemy != null)
+            if (shootTimer <= 0)
             {
-                ShootProjectile();
+                SearchForTarget();
 
-                shootTimer = towerDecorator.GetAttackSpeed;
+                if (targetEnemy != null)
+                {
+                    ShootProjectile();
+
+                    shootTimer = towerDecorator.GetAttackSpeed;
+                }
+            }
+            else
+            {
+                shootTimer -= Time.deltaTime;
             }
         }
-        else
-        {
-            shootTimer -= Time.deltaTime;
-        }    
+    }
 
-        if(costTimer <= 0)
+    public void PayCost()
+    {
+        if (costTimer <= 0)
         {
             //pay cost
-            costTimer = maxCostTimer;
+            if (MainTower.GetComponent<TownScript>().UpKeepAmount(towerDecorator.GetResourceCost))
+            {
+                costTimer = maxCostTimer;
+                isActive = true;
+            }
+            else
+            {
+                isActive = false;
+                costTimer = maxCostTimer;
+            }
         }
         else
         {
@@ -88,7 +101,7 @@ public class AttackTowerRangeScript : MonoBehaviour
         {
             Vector3 vecDistance = enemy.transform.position - startPosition;
             float currentDistance = vecDistance.magnitude;
-            if(currentDistance < distance)
+            if (currentDistance < distance)
             {
                 closestEnemy = enemy;
                 distance = currentDistance;

@@ -6,7 +6,6 @@ public class ProjectileScript : MonoBehaviour
 {
     public float projectileSpeed;
     public BoxCollider2D collider;
-    //public GameObject characterSprite;
 
     private float speedScale = 0.5f;
     private int projectileDamage;
