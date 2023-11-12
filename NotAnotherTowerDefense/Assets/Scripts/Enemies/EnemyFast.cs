@@ -10,8 +10,9 @@ public class EnemyFast : MonoBehaviour, Enemy
     public int m_Health = 3;
     public float m_Speed = 2.5f;
     public int m_Damage = 5;
-    private GameObject m_TowerRef;
-    private Transform m_Transform;
+    private bool isActive = false;
+    [SerializeField] private GameObject m_TowerRef;
+    [SerializeField] private Transform m_Transform;
 
     public int Value { get => m_Value; set => m_Value = value; }
     public int Health { get => m_Health; set => m_Health = value; }
@@ -26,14 +27,15 @@ public class EnemyFast : MonoBehaviour, Enemy
 
     public void MoveCharacter()
     {
-        m_Transform.position = Vector2.MoveTowards(m_Transform.position, m_TowerRef.transform.position, m_Speed * Time.deltaTime); //Moving the Enemy towarads the tower - PG
+        transform.position = Vector2.MoveTowards(transform.position, m_TowerRef.transform.position, m_Speed * Time.deltaTime); //Moving the Enemy towarads the tower - PG
     }
 
     public void Initialize()
     {
-        m_TowerRef = GameObject.Find("PlayerTower"); //Setting the tower refrence 
+        //m_TowerRef = GameObject.Find("TownTower"); //Setting the tower refrence 
         gameObject.tag = "Enemies"; //Setting the Gameobject Tag
         gameObject.name = EnemyName; //Setting the GameObject Name
+        isActive = true;
     }
 
     public int UpdateHealth()
@@ -59,6 +61,9 @@ public class EnemyFast : MonoBehaviour, Enemy
     // Update is called once per frame
     void Update()
     {
-        
+        if (isActive == true)
+        {
+            MoveCharacter();
+        }
     }
 }

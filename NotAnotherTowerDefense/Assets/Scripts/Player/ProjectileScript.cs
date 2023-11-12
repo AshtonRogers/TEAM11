@@ -20,7 +20,13 @@ public class ProjectileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (targetEnemy == null)
+        {
+            Destroy(gameObject);
+        }
+
         transform.position = Vector2.MoveTowards(transform.position, targetEnemy.transform.position, projectileSpeed * Time.deltaTime * speedScale);
+
 
         if(collider.bounds.Intersects(targetEnemy.GetComponent<BoxCollider2D>().bounds))
         {
@@ -38,21 +44,6 @@ public class ProjectileScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    Enemy iDamage = targetEnemy.GetComponent<Enemy>();
-
-    //    Debug.Log("is hit enemy");
-
-    //    if (iDamage != null)
-    //    {
-    //        Debug.Log("idamage not null");
-    //        iDamage.UpdateHealth();
-    //    }
-
-    //    Destroy(this);
-    //}
 
     public void SetTarget(GameObject target)
     {
