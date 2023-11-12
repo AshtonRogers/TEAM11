@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class AttackTowerScript : MonoBehaviour
 {
-    public float shootTimerSecondsMax = 4.0f;
-    float shootTimerSeconds;
+    float shootTimer;
+
+    float maxCostTimer = 1.0f;
+    float costTimer;
+    bool isActive;
 
     public GameObject Projectiles;
     public GameObject MainTower;
@@ -13,17 +16,20 @@ public class AttackTowerScript : MonoBehaviour
     private ProjectileScript projectileScript;
     private GameObject targetEnemy = null;
 
+    TowerDecorator towerDecorator = new BaseTower();
+
     // Start is called before the first frame update
     void Start()
     {
-        shootTimerSeconds = shootTimerSecondsMax;
+        shootTimer = towerDecorator.GetAttackSpeed;
+        costTimer = maxCostTimer;
         projectileScript = Projectiles.GetComponent<ProjectileScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(shootTimerSeconds <= 0)
+        if(shootTimer <= 0)
         {
             SearchForTarget();
 
@@ -31,18 +37,27 @@ public class AttackTowerScript : MonoBehaviour
             {
                 ShootProjectile();
 
-                shootTimerSeconds = shootTimerSecondsMax;
+                shootTimer = towerDecorator.GetAttackSpeed;
             }
         }
         else
         {
-            shootTimerSeconds -= Time.deltaTime;
+            shootTimer -= Time.deltaTime;
         }    
+
+        if(costTimer <= 0)
+        {
+            //pay cost
+        }
+        else
+        {
+            costTimer -= Time.deltaTime;
+        }
     }
 
     protected void ShootProjectile()
     {
-        //projectileScript.SetDamage();
+        projectileScript.SetDamage(towerDecorator.GetDamage);
         projectileScript.SetTarget(targetEnemy);
         Instantiate(projectileScript, transform);
     }
@@ -61,7 +76,7 @@ public class AttackTowerScript : MonoBehaviour
     protected GameObject FindClosestTarget()
     {
         GameObject[] enemies;
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        enemies = GameObject.FindGameObjectsWithTag("Enemies");
         GameObject closestEnemy = null;
         Vector3 startPosition = MainTower.transform.position;
 
