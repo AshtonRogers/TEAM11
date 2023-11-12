@@ -22,6 +22,7 @@ public class EnemyFactory : MonoBehaviour
     {
         if (_enemyType == null)
         {
+
             return null;
         }
         else if (_enemyType == "DEFAULT")
@@ -42,4 +43,5 @@ public class EnemyFactory : MonoBehaviour
         }
 
     }
+
 }

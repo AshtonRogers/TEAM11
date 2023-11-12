@@ -5,12 +5,23 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     EnemyFactory EnemyFactory;
+    public GameObject m_EmptyEnemyPrefab;
+
+    public Transform m_EnemySpawn;
+ 
+
     public int m_StartWave = 1;
     public int m_CurrentWave;
+
+    //Currency - PG 
+    public int m_Gold;
+    public int m_Silver;
+
     // Start is called before the first frame update
     void Start()
     {
         m_CurrentWave = m_StartWave;
+        SpawnWave();
     }
 
     // Update is called once per frame
@@ -21,16 +32,31 @@ public class Level : MonoBehaviour
 
     void SpawnWave()
     {
+        
         if (GameObject.FindGameObjectsWithTag("Enemies") == null)
         {
-            for (int i = 0; i != m_CurrentWave; i++)
+            Debug.Log("SPAWN");
+            for (int i = 0; i != m_CurrentWave * 10; i++)
             {
+
                 //EnemyFactory.getEnemy()
+                
+                GameObject newEnemy = Instantiate(m_EmptyEnemyPrefab, m_EnemySpawn.transform.position, m_EnemySpawn.rotation); //Creating the Enemy 
+
+                newEnemy.tag = "Enemies"; //Setting the New Enemies Tag 
+                newEnemy.AddComponent<EnemyDefault>();
+
             }
         } 
     }
     void SetEnemyPath()
     {
-        
+
+    }
+
+    void GenerateCurrency()
+    {
+        //Changer pet 10 levels 
+
     }
 }

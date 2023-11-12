@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStrong : Enemy
+public class EnemyStrong : MonoBehaviour, Enemy
 {
     //Enemy Varibles - PG
+    public int m_Value = 3;
     public int m_Health = 15;
     public float m_Speed = 0.7f;
     public int m_Damage = 10;

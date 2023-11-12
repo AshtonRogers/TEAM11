@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDefault : Enemy
+public class EnemyDefault : MonoBehaviour, Enemy
 {
     //Enemy Varibles - PG
-    public int m_Health = 5;
+    public int m_Value = 1;
+    public int m_Health = 6;
     public float m_Speed  = 1;
     public int m_Damage = 5;
     private GameObject m_TowerRef;

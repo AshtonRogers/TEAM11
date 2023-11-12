@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFast : Enemy
+public class EnemyFast : MonoBehaviour, Enemy
 {
     //Enemy Varibles - PG
-    public int m_Health = 2;
+    public int m_Value = 2;
+    public int m_Health = 3;
     public float m_Speed = 2.5f;
     public int m_Damage = 5;
     private GameObject m_TowerRef;
