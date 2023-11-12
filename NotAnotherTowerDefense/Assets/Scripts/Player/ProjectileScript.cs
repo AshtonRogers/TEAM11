@@ -26,12 +26,13 @@ public class ProjectileScript : MonoBehaviour
         {
             Enemy iDamage = targetEnemy.GetComponent<Enemy>();
 
-            Debug.Log("is hit enemy");
+            //Debug.Log("is hit enemy");
 
             if (iDamage != null)
             {
-                Debug.Log("idamage not null");
-                iDamage.UpdateHealth();
+                //Debug.Log("idamage not null");
+                iDamage.Health = iDamage.UpdateHealth();
+                //Debug.Log(iDamage.Health);
             }
 
             Destroy(gameObject);

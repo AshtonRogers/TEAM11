@@ -40,7 +40,7 @@ public class EnemyDefault : MonoBehaviour, Enemy
     {
         if (m_Health > 0)
         {
-            Debug.Log(m_Health);
+            Debug.Log(m_Health - 1);
             return m_Health - 1;
         }
         else
