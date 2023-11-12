@@ -31,10 +31,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            PlaceTower(PlacementMode.Mode_Melee);
-        }
+        CheckForKeyInput(); 
 
 
         //update currencys
@@ -86,25 +83,20 @@ public class PlayerController : MonoBehaviour
     {
         m_CurrentMode = _Mode;
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
+        GameObject newTower = null;
         switch (m_CurrentMode)
         {
             case PlacementMode.Mode_Melee:
-                GameObject newMelee = Instantiate(m_MeleeTowerRef, mousePosition, Quaternion.identity);
-
-                if (CheckPlacement(newMelee) == false)
-                {
-                    Destroy(newMelee);
-                }
-                else
-                {
-
-
-                }
+                newTower = Instantiate(m_MeleeTowerRef, mousePosition, Quaternion.identity);
                 break;
             case PlacementMode.Mode_Range:
-
+                newTower = Instantiate(m_RangeTowerRef, mousePosition, Quaternion.identity);
                 break;
+        }
+
+        if (CheckPlacement(newTower) == false)
+        {
+            Destroy(newTower);
         }
     }
 
@@ -114,6 +106,7 @@ public class PlayerController : MonoBehaviour
         GameObject[] Path = GameObject.FindGameObjectsWithTag("Path");
         GameObject[] Towers = GameObject.FindGameObjectsWithTag("Towers");
 
+        Debug.Log(Path.Length);
         foreach (GameObject _Tower in Towers)
         {
             if (_TowerObj.GetComponent<BoxCollider2D>().bounds.Intersects(_Tower.GetComponent<BoxCollider2D>().bounds) && _TowerObj != _Tower)
@@ -134,5 +127,25 @@ public class PlayerController : MonoBehaviour
 
 
         return true;
+    }
+
+    void CheckForKeyInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) //Placing Melee
+        {
+            PlaceTower(PlacementMode.Mode_Melee);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2)) //Placing Ranged
+        {
+            PlaceTower(PlacementMode.Mode_Range);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3)) //Placing Gold
+        {
+
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4)) //Placing Silver
+        {
+
+        }
     }
 }
