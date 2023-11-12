@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public interface TowerDecorator
+public interface AttackTowerDecorator
 {
     float GetAttackSpeed { get; }
     int GetDamage { get; }
     int GetResourceCost { get; }
 }
 
-public class BaseTower : TowerDecorator
+public class BaseTower : AttackTowerDecorator
 {
     float attackSpeed = 4.0f;
     int damage = 1;
@@ -40,11 +40,11 @@ public class BaseTower : TowerDecorator
     }
 }
 
-public abstract class TowerUpgrade : TowerDecorator
+public abstract class TowerUpgrade : AttackTowerDecorator
 {
-    public TowerDecorator towerDecorator;
+    public AttackTowerDecorator towerDecorator;
 
-    public void ApplyUpgrade(TowerDecorator newTowerDecorator)
+    public void ApplyUpgrade(AttackTowerDecorator newTowerDecorator)
     {
         towerDecorator = newTowerDecorator;
     }

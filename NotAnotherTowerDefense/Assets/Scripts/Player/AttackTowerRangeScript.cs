@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackTowerScript : MonoBehaviour
+public class AttackTowerRangeScript : MonoBehaviour
 {
     float shootTimer;
 
@@ -16,7 +16,7 @@ public class AttackTowerScript : MonoBehaviour
     private ProjectileScript projectileScript;
     private GameObject targetEnemy = null;
 
-    TowerDecorator towerDecorator = new BaseTower();
+    AttackTowerDecorator towerDecorator = new BaseTower();
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +48,7 @@ public class AttackTowerScript : MonoBehaviour
         if(costTimer <= 0)
         {
             //pay cost
+            costTimer = maxCostTimer;
         }
         else
         {

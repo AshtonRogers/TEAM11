@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2765641527149735357}
   - component: {fileID: 2715555091748861328}
-  - component: {fileID: 6932861349837775140}
   - component: {fileID: 5298487352417469793}
+  - component: {fileID: 8789362145303907891}
   m_Layer: 0
-  m_Name: AttackTowerPrefab
+  m_Name: SilverTowerPrefab
   m_TagString: Towers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dce1d47b0dbad9747be76cba98399a5d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3a65d25efe2040a4f8634b41d56cbcb6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,21 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6932861349837775140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62151905224447080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52b7055319fed764f8d5b212adbcad42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootTimerSecondsMax: 4
-  Projectiles: {fileID: 1653006197170579484, guid: 9a357451df0754447b8e470b9b4ed4dc, type: 3}
-  MainTower: {fileID: 0}
 --- !u!61 &5298487352417469793
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -118,7 +103,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -127,3 +112,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8789362145303907891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62151905224447080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74dde1b29630a4f43992bfe7beb7b3f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainTower: {fileID: 0}
