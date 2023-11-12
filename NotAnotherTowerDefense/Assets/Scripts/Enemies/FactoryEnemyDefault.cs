@@ -14,6 +14,7 @@ public class FactoryEnemyDefault : EnemyFactory
 
         EnemyDefault newDefault = newEnemyInstance.GetComponent<EnemyDefault>();
         newDefault.Initialize();
+
         newEnemyInstance.name = newDefault.EnemyName;
 
         return newDefault;

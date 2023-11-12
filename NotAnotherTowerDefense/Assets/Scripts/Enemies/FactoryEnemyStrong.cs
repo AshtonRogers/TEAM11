@@ -5,7 +5,7 @@ using UnityEngine;
 public class FactoryEnemyStrong : EnemyFactory
 {
 
-    [SerializeField] private EnemyDefault m_EnemyDefaultPrefab;
+    [SerializeField] private EnemyStrong m_EnemyDefaultPrefab;
 
     public override Enemy GetEnemy(Transform _Transform)
     {
@@ -13,7 +13,9 @@ public class FactoryEnemyStrong : EnemyFactory
         newEnemyInstance.tag = "Enemies";
 
         EnemyDefault newStrong = newEnemyInstance.GetComponent<EnemyDefault>();
+        newStrong.Initialize();
 
+        newEnemyInstance.name = newStrong.EnemyName;
         return newStrong;
     }
 }

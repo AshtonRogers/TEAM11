@@ -6,6 +6,7 @@ public class Level : MonoBehaviour
 {
     public Transform m_EnemySpawn;
     [SerializeField] EnemyFactory[] m_EnemyFactories;
+    private EnemyFactory m_CurrentFactory;
 
     public int m_StartWave = 1;
     public int m_CurrentWave;
@@ -35,17 +36,9 @@ public class Level : MonoBehaviour
             Debug.Log("SPAWN");
             for (int i = 0; i != m_CurrentWave * 10; i++)
             {
+                m_CurrentFactory = m_EnemyFactories[Random.Range(0, m_EnemyFactories.Length)];
 
-                //EnemyFactory.getEnemy()
-                //EnemyFactory.getEnemy("DEFAULT")
-                //GameObject newEnemy = EnemyFactory.getEnemy("DEFAULT");
-
-                //GameObject newEnemy = Instantiate(m_EmptyEnemyPrefab, m_EnemySpawn.transform.position, m_EnemySpawn.rotation); //Creating the Enemy 
-                //newEnemy.tag = "Enemies"; //Setting the New Enemies Tag 
-
-                //newEnemy = EnemyFactory.getEnemy("DEFAULT");
-                //newEnemy.AddComponent < EnemyFactory.getEnemy("DEFAULT") >
-                //newEnemy.AddComponent<EnemyDefault>();
+                m_CurrentFactory.GetEnemy(m_EnemySpawn);
 
             }
         } 
