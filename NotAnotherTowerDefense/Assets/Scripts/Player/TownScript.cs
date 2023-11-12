@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TownScript : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class TownScript : MonoBehaviour
 
     private float silverCollectionTimer = 1.0f;
 
+    [SerializeField] private Text m_GoldText;
+    [SerializeField] private Text m_SilverText;
 
     public Level level;
 
@@ -28,7 +31,9 @@ public class TownScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Updating UI Text
+        m_GoldText.text = gold.ToString();
+        m_SilverText.text = silver.ToString();
     }
 
     public void ClaimTownSilver()
