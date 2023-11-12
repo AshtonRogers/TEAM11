@@ -40,11 +40,15 @@ public class Level : MonoBehaviour
             {
 
                 //EnemyFactory.getEnemy()
-                
-                GameObject newEnemy = Instantiate(m_EmptyEnemyPrefab, m_EnemySpawn.transform.position, m_EnemySpawn.rotation); //Creating the Enemy 
+                //EnemyFactory.getEnemy("DEFAULT")
+                GameObject newEnemy = EnemyFactory.getEnemy("DEFAULT");
 
+                Instantiate(m_EmptyEnemyPrefab, m_EnemySpawn.transform.position, m_EnemySpawn.rotation); //Creating the Enemy 
                 newEnemy.tag = "Enemies"; //Setting the New Enemies Tag 
-                newEnemy.AddComponent<EnemyDefault>();
+
+                newEnemy = EnemyFactory.getEnemy("DEFAULT");
+                //newEnemy.AddComponent < EnemyFactory.getEnemy("DEFAULT") >
+                //newEnemy.AddComponent<EnemyDefault>();
 
             }
         } 

@@ -20,22 +20,42 @@ public class EnemyFactory : MonoBehaviour
 
     public Enemy getEnemy(string _enemyType) //Get the Object type of the Enemy - PG 
     {
-        if (_enemyType == null)
-        {
 
-            return null;
-        }
-        else if (_enemyType == "DEFAULT")
+        if (_enemyType == "DEFAULT")
         {
             return new EnemyDefault();
+            //return gameObject.AddComponent<EnemyDefault>();
         }
         else if (_enemyType == "FAST")
         {
-            return new EnemyFast();
+            return gameObject.AddComponent<EnemyFast>();
         }
         else if (_enemyType == "STRONG")
         {
-            return new EnemyStrong();
+            return gameObject.AddComponent<EnemyStrong>();
+        }
+        else
+        {
+            return null;
+        }
+
+    }
+
+    public Enemy getEnemy(string _enemyType) //Get the Object type of the Enemy - PG 
+    {
+
+        if (_enemyType == "DEFAULT")
+        {
+            return new EnemyDefault();
+            //return gameObject.AddComponent<EnemyDefault>();
+        }
+        else if (_enemyType == "FAST")
+        {
+            return gameObject.AddComponent<EnemyFast>();
+        }
+        else if (_enemyType == "STRONG")
+        {
+            return gameObject.AddComponent<EnemyStrong>();
         }
         else
         {
