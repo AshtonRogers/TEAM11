@@ -64,5 +64,10 @@ public class EnemyDefault : MonoBehaviour, Enemy
         {
             MoveCharacter();
         }
+
+        if (m_Health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
