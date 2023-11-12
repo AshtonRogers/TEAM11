@@ -8,7 +8,16 @@ public class TownScript : MonoBehaviour
     public int gold = 0;
     public int silver = 0;
 
+    private float silverCollectionTimer = 1.0f;
+
+
     public Level level;
+
+    public List<SilverTowerScript> silverTowers = new List<SilverTowerScript>();
+    public List<GoldTowerScript> goldTowers = new List<GoldTowerScript>();
+    public List<AttackTowerMeleeScript> attackTowerMelees = new List<AttackTowerMeleeScript>();
+    public List<AttackTowerRangeScript> attackTowerRanges = new List<AttackTowerRangeScript>();
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +29,15 @@ public class TownScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ClaimTownSilver()
+    {
+        if(silverCollectionTimer <= 0.0f)
+        {
+            int amount = 3 * level.m_CurrentWave;
+            IncreaseSilver(amount);
+        }
     }
 
     public void IncreaseGold(int amount)
@@ -56,6 +74,23 @@ public class TownScript : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public void AddGoldTower(GoldTowerScript tower)
+    {
+        goldTowers.Add(tower);
+    }
+    public void AddSilverTower(SilverTowerScript tower)
+    {
+        silverTowers.Add(tower);
+    }
+    public void AddMeleeTower(AttackTowerMeleeScript tower)
+    {
+        attackTowerMelees.Add(tower);
+    }
+    public void AddRangeTower(AttackTowerRangeScript tower)
+    {
+        attackTowerRanges.Add(tower);
     }
 
 

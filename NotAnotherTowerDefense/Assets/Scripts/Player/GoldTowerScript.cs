@@ -24,6 +24,11 @@ public class GoldTowerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    public void ClaimGold()
+    {
         if (isActive)
         {
             if (payTimer <= 0)

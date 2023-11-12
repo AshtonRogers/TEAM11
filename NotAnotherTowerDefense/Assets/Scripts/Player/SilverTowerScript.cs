@@ -24,7 +24,12 @@ public class SilverTowerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isActive)
+        
+    }
+
+    public void ClaimSiliver()
+    {
+        if (isActive)
         {
             if (payTimer <= 0)
             {
@@ -44,7 +49,7 @@ public class SilverTowerScript : MonoBehaviour
         if (costTimer <= 0)
         {
             //pay cost
-            if (MainTower.GetComponent<TownScript>().UpKeepAmount(towerDecorator.GetResourceCost))
+            if (MainTower.GetComponent<TownScript>().UpKeepSilverAmount(towerDecorator.GetResourceCost))
             {
                 costTimer = maxCostTimer;
                 isActive = true;
