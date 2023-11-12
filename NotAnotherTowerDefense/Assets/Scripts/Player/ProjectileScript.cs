@@ -36,7 +36,7 @@ public class ProjectileScript : MonoBehaviour
             if (iDamage != null)
             {
                 //Debug.Log("idamage not null");
-                iDamage.Health = iDamage.UpdateHealth();
+                iDamage.Health = iDamage.UpdateHealth(projectileDamage);
                 //Debug.Log(iDamage.Health);
             }
 
