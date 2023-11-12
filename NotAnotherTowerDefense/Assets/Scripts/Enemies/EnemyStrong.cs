@@ -47,6 +47,14 @@ public class EnemyStrong : MonoBehaviour, Enemy
             return 0;
         }
     }
+    void Start()
+    {
 
+    }
+
+    void Update()
+    {
+        
+    }
  
 }

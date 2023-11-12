@@ -6,8 +6,8 @@ using UnityEngine;
 
 public abstract class EnemyFactory : MonoBehaviour
 {
-    public abstract Enemy GetEnemy(Transform _Transform);
-
+    public abstract Enemy GetEnemy();
+    //public abstract Enemy GetEnemy(Transform _Transform);
 
     //public Enemy getEnemy(string _enemyType) //Get the Object type of the Enemy - PG 
     //{

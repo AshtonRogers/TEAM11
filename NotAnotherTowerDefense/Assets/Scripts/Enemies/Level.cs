@@ -31,17 +31,17 @@ public class Level : MonoBehaviour
     void SpawnWave()
     {
         
-        if (GameObject.FindGameObjectsWithTag("Enemies") == null)
-        {
+        //if (GameObject.FindGameObjectsWithTag("Enemies") == null)
+        //{
             Debug.Log("SPAWN");
             for (int i = 0; i != m_CurrentWave * 10; i++)
             {
                 m_CurrentFactory = m_EnemyFactories[Random.Range(0, m_EnemyFactories.Length)];
 
-                m_CurrentFactory.GetEnemy(m_EnemySpawn);
+                m_CurrentFactory.GetEnemy();
 
             }
-        } 
+        //} 
     }
     void SetEnemyPath()
     {

@@ -5,14 +5,15 @@ using UnityEngine;
 public class FactoryEnemyStrong : EnemyFactory
 {
 
-    [SerializeField] private EnemyStrong m_EnemyDefaultPrefab;
+    [SerializeField] public EnemyStrong m_EnemyDefaultPrefab;
 
-    public override Enemy GetEnemy(Transform _Transform)
+    public override Enemy GetEnemy()
     {
-        GameObject newEnemyInstance = Instantiate(m_EnemyDefaultPrefab.gameObject, _Transform.position, _Transform.rotation);
+        Vector3 Temp = new Vector3(0f, 0f, 0f);
+        GameObject newEnemyInstance = Instantiate(m_EnemyDefaultPrefab.gameObject, Temp, Quaternion.identity);
         newEnemyInstance.tag = "Enemies";
 
-        EnemyDefault newStrong = newEnemyInstance.GetComponent<EnemyDefault>();
+        EnemyStrong newStrong = newEnemyInstance.GetComponent<EnemyStrong>();
         newStrong.Initialize();
 
         newEnemyInstance.name = newStrong.EnemyName;
