@@ -44,7 +44,7 @@ public class SilverTowerScript : MonoBehaviour
         if (costTimer <= 0)
         {
             //pay cost
-            if (MainTower.GetComponent<TownScript>().UpKeepAmount(towerDecorator.GetResourceCost))
+            if (MainTower.GetComponent<TownScript>().UpKeepSilverAmount(towerDecorator.GetResourceCost))
             {
                 costTimer = maxCostTimer;
                 isActive = true;

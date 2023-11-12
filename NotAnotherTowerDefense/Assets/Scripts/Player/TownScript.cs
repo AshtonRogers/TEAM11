@@ -10,6 +10,12 @@ public class TownScript : MonoBehaviour
 
     public Level level;
 
+    public List<SilverTowerScript> silverTowers = new List<SilverTowerScript>();
+    public List<GoldTowerScript> goldTowers = new List<GoldTowerScript>();
+    public List<AttackTowerMeleeScript> attackTowerMelees = new List<AttackTowerMeleeScript>();
+    public List<AttackTowerRangeScript> attackTowerRanges = new List<AttackTowerRangeScript>();
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +62,23 @@ public class TownScript : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public void AddGoldTower(GoldTowerScript tower)
+    {
+        goldTowers.Add(tower);
+    }
+    public void AddSilverTower(SilverTowerScript tower)
+    {
+        silverTowers.Add(tower);
+    }
+    public void AddMeleeTower(AttackTowerMeleeScript tower)
+    {
+        attackTowerMelees.Add(tower);
+    }
+    public void AddRangeTower(AttackTowerRangeScript tower)
+    {
+        attackTowerRanges.Add(tower);
     }
 
 
