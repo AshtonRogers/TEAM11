@@ -490,6 +490,8 @@ MonoBehaviour:
   town: {fileID: 2049285884}
   m_RangeTowerRef: {fileID: 577117258}
   m_MeleeTowerRef: {fileID: 1212498883}
+  m_GoldTowerRef: {fileID: 0}
+  m_SilverTowerRef: {fileID: 0}
 --- !u!4 &154731134
 Transform:
   m_ObjectHideFlags: 0
@@ -640,6 +642,11 @@ PrefabInstance:
       objectReference: {fileID: 942505352}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc911b10674275542a05651d3d63e04b, type: 3}
+--- !u!1 &431996443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 62151905224447080, guid: 0f03cb3fc0e58e74fb191f9e3f708c36, type: 3}
+  m_PrefabInstance: {fileID: 1342889785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &458776541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2742,6 +2749,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2765641527149735357, guid: 978ac6ad7900cf641b53288b2b39d9c3, type: 3}
   m_PrefabInstance: {fileID: 1822261154}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1874426215 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 62151905224447080, guid: de27b581bf599b74a968771e7678deac, type: 3}
+  m_PrefabInstance: {fileID: 1671875398}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1951786328
 GameObject:
   m_ObjectHideFlags: 0
@@ -2922,6 +2934,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2049285884}
     - target: {fileID: 8169381427746192531, guid: fa7d97daa8ca3fc4aa236c9f000b9542, type: 3}
+      propertyPath: m_GoldTowerRef
+      value: 
+      objectReference: {fileID: 431996443}
+    - target: {fileID: 8169381427746192531, guid: fa7d97daa8ca3fc4aa236c9f000b9542, type: 3}
       propertyPath: m_MeleeTowerRef
       value: 
       objectReference: {fileID: 1212498883}
@@ -2929,5 +2945,9 @@ PrefabInstance:
       propertyPath: m_RangeTowerRef
       value: 
       objectReference: {fileID: 577117258}
+    - target: {fileID: 8169381427746192531, guid: fa7d97daa8ca3fc4aa236c9f000b9542, type: 3}
+      propertyPath: m_SilverTowerRef
+      value: 
+      objectReference: {fileID: 1874426215}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa7d97daa8ca3fc4aa236c9f000b9542, type: 3}

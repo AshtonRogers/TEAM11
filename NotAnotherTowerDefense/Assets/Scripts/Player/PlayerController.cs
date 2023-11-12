@@ -7,6 +7,8 @@ enum PlacementMode
 {
     Mode_Range,
     Mode_Melee,
+    Mode_Gold,
+    Mode_Silver,
     Mode_Inactive
 }
 
@@ -18,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject m_RangeTowerRef;
     [SerializeField] private GameObject m_MeleeTowerRef;
+    [SerializeField] private GameObject m_GoldTowerRef;
+    [SerializeField] private GameObject m_SilverTowerRef;
 
     private bool m_IsPlacing = false;
 
@@ -92,12 +96,36 @@ public class PlayerController : MonoBehaviour
             case PlacementMode.Mode_Range:
                 newTower = Instantiate(m_RangeTowerRef, mousePosition, Quaternion.identity);
                 break;
+            case PlacementMode.Mode_Gold:
+                newTower = Instantiate(m_GoldTowerRef, mousePosition, Quaternion.identity);
+                break;
+            case PlacementMode.Mode_Silver:
+                newTower = Instantiate(m_SilverTowerRef, mousePosition, Quaternion.identity);
+                break;
         }
 
         if (CheckPlacement(newTower) == false)
         {
             Destroy(newTower);
         }
+        //else
+        //{
+        //    switch(m_CurrentMode)
+        //    {
+        //        case PlacementMode.Mode_Melee:
+        //            town.attackTowerMelees.Add(newTower.GetComponent<AttackTowerMeleeScript>());
+        //            break;
+        //        case PlacementMode.Mode_Range:
+        //            town.attackTowerRanges.Add(newTower.GetComponent<AttackTowerRangeScript>());
+        //            break;
+        //        case PlacementMode.Mode_Gold:
+        //            town.goldTowers.Add(newTower.GetComponent<GoldTowerScript>());
+        //            break;
+        //        case PlacementMode.Mode_Silver:
+        //            town.silverTowers.Add(newTower.GetComponent<SilverTowerScript>());
+        //            break;
+        //    }
+        //}
     }
 
     bool CheckPlacement(GameObject _TowerObj)
@@ -141,11 +169,11 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3)) //Placing Gold
         {
-
+            PlaceTower(PlacementMode.Mode_Gold);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4)) //Placing Silver
         {
-
+            PlaceTower(PlacementMode.Mode_Silver);
         }
     }
 }
