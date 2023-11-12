@@ -24,7 +24,12 @@ public class SilverTowerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isActive)
+        
+    }
+
+    public void ClaimSiliver()
+    {
+        if (isActive)
         {
             if (payTimer <= 0)
             {

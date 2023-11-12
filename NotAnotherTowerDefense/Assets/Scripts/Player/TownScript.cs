@@ -8,6 +8,9 @@ public class TownScript : MonoBehaviour
     public int gold = 0;
     public int silver = 0;
 
+    private float silverCollectionTimer = 1.0f;
+
+
     public Level level;
 
     public List<SilverTowerScript> silverTowers = new List<SilverTowerScript>();
@@ -26,6 +29,15 @@ public class TownScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ClaimTownSilver()
+    {
+        if(silverCollectionTimer <= 0.0f)
+        {
+            int amount = 3 * level.m_CurrentWave;
+            IncreaseSilver(amount);
+        }
     }
 
     public void IncreaseGold(int amount)
