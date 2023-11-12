@@ -40,7 +40,7 @@ public class EnemyFast : MonoBehaviour, Enemy
     {
         if (m_Health > 0)
         {
-            Debug.Log("enemy hit");
+            Debug.Log(m_Health);
             return m_Health - 1;
         }
         else

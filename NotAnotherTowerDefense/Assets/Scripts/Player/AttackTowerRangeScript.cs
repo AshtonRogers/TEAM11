@@ -58,9 +58,10 @@ public class AttackTowerRangeScript : MonoBehaviour
 
     protected void ShootProjectile()
     {
-        projectileScript.SetDamage(towerDecorator.GetDamage);
-        projectileScript.SetTarget(targetEnemy);
-        Instantiate(projectileScript, transform);
+        GameObject projectile =  Instantiate(Projectiles, transform);
+
+        projectile.GetComponent<ProjectileScript>().SetTarget(targetEnemy);
+        projectile.GetComponent<ProjectileScript>().SetDamage(towerDecorator.GetDamage);
     }
 
 

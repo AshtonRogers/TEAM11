@@ -34,7 +34,7 @@ public class Level : MonoBehaviour
         //if (GameObject.FindGameObjectsWithTag("Enemies") == null)
         //{
             Debug.Log("SPAWN");
-            for (int i = 0; i != m_CurrentWave * 10; i++)
+            for (int i = 0; i != m_CurrentWave; i++)
             {
                 m_CurrentFactory = m_EnemyFactories[Random.Range(0, m_EnemyFactories.Length)];
 
