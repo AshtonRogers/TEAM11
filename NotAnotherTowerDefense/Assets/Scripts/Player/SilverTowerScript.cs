@@ -44,4 +44,25 @@ public class SilverTowerScript : MonoBehaviour
             costTimer -= Time.deltaTime;
         }
     }
+
+    protected void UpgradeGenerationSpeed()
+    {
+        Debug.Log("Upgraded Generation Speed");
+        GenerationUpgrade generationUpgrade = new GenerationUpgrade();
+        generationUpgrade.ApplyUpgrade(towerDecorator);
+    }
+
+    protected void UpgradeAmount()
+    {
+        Debug.Log("Upgraded Amount");
+        AmountUpgrade amountUpgrade = new AmountUpgrade();
+        amountUpgrade.ApplyUpgrade(towerDecorator);
+    }
+
+    protected void UpgradeResourceCost()
+    {
+        Debug.Log("Upgraded Resource Cost");
+        ResourceResourceCostUpgrade resourceCostUpgrade = new ResourceResourceCostUpgrade();
+        resourceCostUpgrade.ApplyUpgrade(towerDecorator);
+    }
 }

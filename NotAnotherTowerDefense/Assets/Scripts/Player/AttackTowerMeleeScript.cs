@@ -95,4 +95,25 @@ public class AttackTowerMeleeScript : MonoBehaviour
 
         return closestEnemy;
     }
+
+    protected void UpgradeAttackSpeed()
+    {
+        Debug.Log("Upgraded Attack Speed");
+        AttackSpeedUpgrade attackSpeedUpgrade = new AttackSpeedUpgrade();
+        attackSpeedUpgrade.ApplyUpgrade(towerDecorator);
+    }
+
+    protected void UpgradeDamage()
+    {
+        Debug.Log("Upgraded Damage");
+        DamageUpgrade damageUpgrade = new DamageUpgrade();
+        damageUpgrade.ApplyUpgrade(towerDecorator);
+    }
+
+    protected void UpgradeResourceCost()
+    {
+        Debug.Log("Upgraded ResourceCost");
+        ResourceCostUpgrade resourceCostUpgrade = new ResourceCostUpgrade();
+        resourceCostUpgrade.ApplyUpgrade(towerDecorator);
+    }
 }
