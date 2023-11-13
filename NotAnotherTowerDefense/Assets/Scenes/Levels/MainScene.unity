@@ -2004,10 +2004,6 @@ PrefabInstance:
       propertyPath: MainTower
       value: 
       objectReference: {fileID: 2049285882}
-    - target: {fileID: 1084062972101033795, guid: 1c600e1b4fa2d5c4da71e2d4e525e9bc, type: 3}
-      propertyPath: rangeCollider
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2765641527149735357, guid: 1c600e1b4fa2d5c4da71e2d4e525e9bc, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2052,12 +2048,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5298487352417469793, guid: 1c600e1b4fa2d5c4da71e2d4e525e9bc, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5298487352417469793, guid: 1c600e1b4fa2d5c4da71e2d4e525e9bc, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c600e1b4fa2d5c4da71e2d4e525e9bc, type: 3}
 --- !u!4 &657207033 stripped
 Transform:
@@ -4113,48 +4104,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 62151905224447080, guid: 1c600e1b4fa2d5c4da71e2d4e525e9bc, type: 3}
   m_PrefabInstance: {fileID: 657207032}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &1212498888
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1212498883}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!58 &1212498891
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1212498883}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.5
 --- !u!4 &1234961266 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2325935110772834136, guid: b3badfebe79559b4b929c75820243c40, type: 3}
@@ -5679,10 +5628,6 @@ PrefabInstance:
     - target: {fileID: 62151905224447080, guid: 978ac6ad7900cf641b53288b2b39d9c3, type: 3}
       propertyPath: m_Name
       value: AttackTowerRangePrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 62151905224447080, guid: 978ac6ad7900cf641b53288b2b39d9c3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2765641527149735357, guid: 978ac6ad7900cf641b53288b2b39d9c3, type: 3}
       propertyPath: m_RootOrder

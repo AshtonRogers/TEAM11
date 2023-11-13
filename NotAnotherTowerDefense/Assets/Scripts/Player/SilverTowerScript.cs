@@ -2,8 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class SilverTowerScript : MonoBehaviour
 {
+
+    public SpriteRenderer spriteRender;
+    public Sprite level5Sprite;
+    public Sprite level10Sprite;
+    private int upgradeCost = 4;
+    private int upgradeLevel = 1;
+
     private float payTimer;
 
     private float maxCostTimer = 1.0f;
@@ -63,6 +71,54 @@ public class SilverTowerScript : MonoBehaviour
         else
         {
             costTimer -= Time.deltaTime;
+        }
+    }
+
+    public void UpgradeGenerationSpeedButton()
+    {
+        if (MainTower.GetComponent<TownScript>().VerifyGold(upgradeCost))
+        {
+            UpgradeGenerationSpeed();
+            UpgradeResourceCost();
+            upgradeLevel++;
+            upgradeCost *= upgradeLevel;
+
+            if (upgradeLevel == 5)
+            {
+                spriteRender.sprite = level5Sprite;
+            }
+            else if (upgradeLevel == 10)
+            {
+                spriteRender.sprite = level10Sprite;
+            }
+        }
+        else
+        {
+            Debug.Log("Not Enough Resources");
+        }
+    }
+
+    public void UpgradeAmountButton()
+    {
+        if (MainTower.GetComponent<TownScript>().VerifyGold(upgradeCost))
+        {
+            UpgradeAmount();
+            UpgradeResourceCost();
+            upgradeLevel++;
+            upgradeCost *= upgradeLevel;
+
+            if (upgradeLevel == 5)
+            {
+                spriteRender.sprite = level5Sprite;
+            }
+            else if (upgradeLevel == 10)
+            {
+                spriteRender.sprite = level10Sprite;
+            }
+        }
+        else
+        {
+            Debug.Log("Not Enough Resources");
         }
     }
 

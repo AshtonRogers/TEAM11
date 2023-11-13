@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2765641527149735357}
   - component: {fileID: 2715555091748861328}
-  - component: {fileID: 5298487352417469793}
   - component: {fileID: 1084062972101033795}
+  - component: {fileID: 1212498888}
+  - component: {fileID: 1212498891}
   m_Layer: 0
   m_Name: AttackTowerMeleePrefab
   m_TagString: Towers
@@ -86,7 +87,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5298487352417469793
+--- !u!114 &1084062972101033795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62151905224447080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475aba88dd6ffac4daf3a0964509fba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 2715555091748861328}
+  level5Sprite: {fileID: 21300000, guid: 6636048ef0e6ab14a91756c2fdccc482, type: 3}
+  level10Sprite: {fileID: 21300000, guid: e267a722bdff1ff4682a1144d08cdeba, type: 3}
+  isActive: 0
+  MainTower: {fileID: 0}
+  rangeCollider: {fileID: 0}
+--- !u!61 &1212498888
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,17 +131,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1084062972101033795
-MonoBehaviour:
+--- !u!58 &1212498891
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62151905224447080}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 475aba88dd6ffac4daf3a0964509fba6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Projectiles: {fileID: 0}
-  MainTower: {fileID: 0}
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.5

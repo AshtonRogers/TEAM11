@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class AttackTowerRangeScript : MonoBehaviour
 {
+    public SpriteRenderer spriteRender;
+    public Sprite level5Sprite;
+    public Sprite level10Sprite;
+    private int upgradeCost = 4;
+    private int upgradeLevel = 1;
+
+
     private float shootTimer;
 
     private float maxCostTimer = 1.0f;
@@ -109,6 +116,56 @@ public class AttackTowerRangeScript : MonoBehaviour
 
         return closestEnemy;
     }
+
+
+    public void UpgradeAttackSpeedButton()
+    {
+        if (MainTower.GetComponent<TownScript>().VerifyGold(upgradeCost))
+        {
+            UpgradeAttackSpeed();
+            UpgradeResourceCost();
+            upgradeLevel++;
+            upgradeCost *= upgradeLevel;
+
+            if (upgradeLevel == 5)
+            {
+                spriteRender.sprite = level5Sprite;
+            }
+            else if (upgradeLevel == 10)
+            {
+                spriteRender.sprite = level10Sprite;
+            }
+        }
+        else
+        {
+            Debug.Log("Not Enough Resources");
+        }
+    }
+
+    public void UpgradeDamageButton()
+    {
+        if (MainTower.GetComponent<TownScript>().VerifyGold(upgradeCost))
+        {
+            UpgradeDamage();
+            UpgradeResourceCost();
+            upgradeLevel++;
+            upgradeCost *= upgradeLevel;
+
+            if (upgradeLevel == 5)
+            {
+                spriteRender.sprite = level5Sprite;
+            }
+            else if (upgradeLevel == 10)
+            {
+                spriteRender.sprite = level10Sprite;
+            }
+        }
+        else
+        {
+            Debug.Log("Not Enough Resources");
+        }
+    }
+
 
     protected void UpgradeAttackSpeed()
     {
