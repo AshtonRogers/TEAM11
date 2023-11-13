@@ -177,6 +177,34 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
+    void SelectTower()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+        if (hit)
+        {
+            Debug.Log(hit.collider.gameObject.name);
+
+            
+            GameObject currentSelection = hit.collider.gameObject;
+
+            if (currentSelection.name == "AttackTowerMeleePrefab(Clone)")
+            {
+                Debug.Log("Melee Tower Selected");
+
+                //currentSelection.GetComponent<AttackTowerRangeScript>()..
+            }
+
+            
+
+
+
+
+        }
+
+
+    }
+
     void CheckForKeyInput()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1)) //Placing Melee
@@ -195,5 +223,13 @@ public class PlayerController : MonoBehaviour
         {
             PlaceTower(PlacementMode.Mode_Silver);
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("mOUS SELECT");
+            SelectTower();
+        }
     }
+
+    
 }
