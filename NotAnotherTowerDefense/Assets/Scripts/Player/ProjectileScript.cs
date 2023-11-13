@@ -21,10 +21,15 @@ public class ProjectileScript : MonoBehaviour
     {
         if (targetEnemy == null)
         {
+            Debug.Log("DESTORYED BULLET");
             Destroy(gameObject);
         }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, targetEnemy.transform.position, projectileSpeed * Time.deltaTime * speedScale);
+        }
 
-        transform.position = Vector2.MoveTowards(transform.position, targetEnemy.transform.position, projectileSpeed * Time.deltaTime * speedScale);
+        
 
 
         if(collider.bounds.Intersects(targetEnemy.GetComponent<BoxCollider2D>().bounds))
