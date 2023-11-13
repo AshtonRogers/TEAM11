@@ -124,6 +124,16 @@ public class AttackTowerRangeScript : MonoBehaviour
         isActive = active;
     }
 
+    public void ChangeActive()
+    {
+        SetActive(!isActive);
+    }
+
+    public int GetTowerLevel()
+    {
+        return upgradeLevel;
+    }
+
     public void UpgradeAttackSpeedButton()
     {
         if (MainTower.GetComponent<TownScript>().VerifyGold(upgradeCost))

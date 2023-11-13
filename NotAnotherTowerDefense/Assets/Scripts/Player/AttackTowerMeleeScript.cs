@@ -65,7 +65,6 @@ public class AttackTowerMeleeScript : MonoBehaviour
                 if (MainTower.GetComponent<TownScript>().UpKeepAmount(towerDecorator.GetResourceCost))
                 {
                     costTimer = maxCostTimer;
-                    isActive = true;
                 }
                 else
                 {
@@ -139,6 +138,16 @@ public class AttackTowerMeleeScript : MonoBehaviour
     public void SetActive(bool active)
     {
         isActive = active;
+    }
+
+    public void ChangeActive()
+    {
+        SetActive(!isActive);
+    }
+
+    public int GetTowerLevel()
+    {
+        return upgradeLevel;
     }
 
     public void UpgradeAttackSpeedButton()

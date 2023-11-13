@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
+using TMPro;
 
 enum PlacementMode
 {
@@ -24,9 +25,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject m_GoldTowerRef;
     [SerializeField] private GameObject m_SilverTowerRef;
 
+    [SerializeField] private GameObject m_ButtonParent;
     [SerializeField] private Button m_Button1;
     [SerializeField] private Button m_Button2;
     [SerializeField] private Button m_Button3;
+    [SerializeField] private Button m_CloseButton;
+    [SerializeField] private GameObject m_Panel;
 
     private bool m_IsPlacing = false;
 
@@ -188,37 +192,31 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
         if (hit) //Valid Selection of a tower 
         {
-            Debug.Log(hit.collider.gameObject.name);
-            GameObject currentSelection = hit.collider.gameObject; //Setting the Game Obj Ref
-
-            //Enabling the Buttons 
-            m_Button1.GetComponent<Button>().enabled = true;
-            m_Button1.GetComponent<Image>().enabled = true;
-
-            m_Button2.GetComponent<Button>().enabled = true;
-            m_Button2.GetComponent<Image>().enabled = true;
-
-            m_Button3.GetComponent<Button>().enabled = true;
-            m_Button3.GetComponent<Image>().enabled = true;
-
-            if (currentSelection.name == "AttackTowerMeleePrefab(Clone)")
+            if(hit.collider.gameObject.tag == "Path" || hit.collider.gameObject.tag == "Enemies")
+            { }
+            else
             {
-                Debug.Log("Melee Tower Selected");
+                Debug.Log(hit.collider.gameObject.name);
+                GameObject currentSelection = hit.collider.gameObject; //Setting the Game Obj Ref
 
-                //currentSelection.GetComponent<AttackTowerRangeScript>()..
+                m_ButtonParent.GetComponent<TowerUpgradeButtons>().SetSelectedObject(currentSelection);
+
+                //Enabling the Buttons 
+                m_Panel.GetComponent<Image>().enabled = true;
+
+                m_CloseButton.enabled = true;
+                m_CloseButton.GetComponent<Image>().enabled = true;
+
+                m_Button1.GetComponent<Button>().enabled = true;
+                m_Button1.GetComponent<Image>().enabled = true;
+
+                m_Button2.GetComponent<Button>().enabled = true;
+                m_Button2.GetComponent<Image>().enabled = true;
+
+                m_Button3.GetComponent<Button>().enabled = true;
+                m_Button3.GetComponent<Image>().enabled = true;
+
             }
-        }
-        else
-        {
-            //Disabling the Buttons on Deslection of tower 
-            m_Button1.GetComponent<Button>().enabled = false;
-            m_Button1.GetComponent<Image>().enabled = false;
-
-            m_Button2.GetComponent<Button>().enabled = false;
-            m_Button2.GetComponent<Image>().enabled = false;
-
-            m_Button3.GetComponent<Button>().enabled = false;
-            m_Button3.GetComponent<Image>().enabled = false;
         }
 
     }

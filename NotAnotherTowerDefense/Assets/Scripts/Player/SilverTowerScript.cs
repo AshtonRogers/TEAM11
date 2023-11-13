@@ -81,6 +81,16 @@ public class SilverTowerScript : MonoBehaviour
         isActive = active;
     }
 
+    public void ChangeActive()
+    {
+        SetActive(!isActive);
+    }
+
+    public int GetTowerLevel()
+    {
+        return upgradeLevel;
+    }
+
     public void UpgradeGenerationSpeedButton()
     {
         if (MainTower.GetComponent<TownScript>().VerifyGold(upgradeCost))
