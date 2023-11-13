@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class GoldTowerScript : MonoBehaviour
 {
-    float payTimer;
+    private float payTimer;
 
-    float maxCostTimer = 1.0f;
-    float costTimer;
-    bool isActive = true;
+    private float maxCostTimer = 1.0f;
+    private float costTimer;
 
+    public bool isActive = true;
     public GameObject MainTower;
 
     ResourceTowerDecorator towerDecorator = new ResourceBaseTower();
@@ -65,6 +65,7 @@ public class GoldTowerScript : MonoBehaviour
             costTimer -= Time.deltaTime;
         }
     }
+
 
     protected void UpgradeGenerationSpeed()
     {

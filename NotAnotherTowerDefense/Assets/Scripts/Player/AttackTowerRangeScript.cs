@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class AttackTowerRangeScript : MonoBehaviour
 {
-    float shootTimer;
+    private float shootTimer;
 
-    float maxCostTimer = 1.0f;
-    float costTimer;
-    bool isActive = true;
+    private float maxCostTimer = 1.0f;
+    private float costTimer;
 
+    public bool isActive = true;
     public GameObject Projectiles;
     public GameObject MainTower;
-
     private GameObject targetEnemy = null;
 
     AttackTowerDecorator towerDecorator = new BaseTower();

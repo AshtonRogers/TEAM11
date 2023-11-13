@@ -98,6 +98,26 @@ public class TownScript : MonoBehaviour
         attackTowerRanges.Add(tower);
     }
 
+    public bool VerifyGold(int amount)
+    {
+        if(gold >= amount)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool VerifySilver(int amount)
+    {
+        if(silver >= amount)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

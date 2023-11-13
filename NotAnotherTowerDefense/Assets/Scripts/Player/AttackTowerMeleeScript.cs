@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class AttackTowerMeleeScript : MonoBehaviour
 {
-    float shootTimer;
+    private float shootTimer;
 
-    float maxCostTimer = 1.0f;
-    float costTimer;
-    bool isActive;
+    private float maxCostTimer = 1.0f;
+    private float costTimer;
 
+    public bool isActive;
     public GameObject MainTower;
-
     public BoxCollider2D rangeCollider;
-
     private GameObject targetEnemy = null;
 
     AttackTowerDecorator towerDecorator = new BaseTower();
@@ -111,7 +109,7 @@ public class AttackTowerMeleeScript : MonoBehaviour
 
         foreach (GameObject enemy in enemies)
         {
-            if(rangeCollider.bounds.Intersects(enemy.GetComponent<BoxCollider2D>().bounds))
+            if (rangeCollider.bounds.Intersects(enemy.GetComponent<BoxCollider2D>().bounds))
             {
                 //Debug.Log("in collider");
 
