@@ -70,23 +70,27 @@ public class PlayerController : MonoBehaviour
 
         for(int i = 0; i < maxSize; i++)
         {
-            if(goldLength < i && goldLength != 0)
+            if (goldLength >= i && goldLength > 0)
             {
+                Debug.Log("Gold Upkeep Taken");
                 town.goldTowers[i].PayCost();
             }
 
-            if (silverLength < i && silverLength != 0)
+            if (silverLength >= i && silverLength > 0)
             {
+                Debug.Log("Silver Upkeep Taken");
                 town.silverTowers[i].PayCost();
             }
 
-            if (meleeLength < i && meleeLength != 0 )
+            if (meleeLength >= i && meleeLength > 0)
             {
+                Debug.Log("Melee Upkeep Taken");
                 town.attackTowerMelees[i].PayCost();
             }
 
-            if (rangeLength < i && rangeLength != 0 )
+            if (rangeLength >= i && rangeLength > 0)
             {
+                Debug.Log("Range Upkeep Taken");
                 town.attackTowerRanges[i].PayCost();
             }
         }
@@ -192,7 +196,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
         if (hit) //Valid Selection of a tower 
         {
-            if(hit.collider.gameObject.tag == "Path" || hit.collider.gameObject.tag == "Enemies")
+            if(hit.collider.gameObject.tag == "Path" || hit.collider.gameObject.tag == "Enemies" || hit.collider.gameObject.name == "TownTower")
             { }
             else
             {
@@ -242,7 +246,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("mOUS SELECT");
+           
             SelectTower();
         }
     }

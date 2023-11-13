@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class TownScript : MonoBehaviour
 {
     //currency
@@ -128,7 +129,7 @@ public class TownScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemies")
         {
-            Debug.Log("Objective Damage");
+            
 
             Enemy iDamage = collision.gameObject.GetComponent<Enemy>();
 
