@@ -104,7 +104,7 @@ MonoBehaviour:
   level10Sprite: {fileID: 21300000, guid: e267a722bdff1ff4682a1144d08cdeba, type: 3}
   isActive: 0
   MainTower: {fileID: 0}
-  rangeCollider: {fileID: 0}
+  rangeCollider: {fileID: 1212498891}
 --- !u!61 &1212498888
 BoxCollider2D:
   m_ObjectHideFlags: 0

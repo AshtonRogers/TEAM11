@@ -108,24 +108,24 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(newTower);
         }
-        //else
-        //{
-        //    switch(m_CurrentMode)
-        //    {
-        //        case PlacementMode.Mode_Melee:
-        //            town.attackTowerMelees.Add(newTower.GetComponent<AttackTowerMeleeScript>());
-        //            break;
-        //        case PlacementMode.Mode_Range:
-        //            town.attackTowerRanges.Add(newTower.GetComponent<AttackTowerRangeScript>());
-        //            break;
-        //        case PlacementMode.Mode_Gold:
-        //            town.goldTowers.Add(newTower.GetComponent<GoldTowerScript>());
-        //            break;
-        //        case PlacementMode.Mode_Silver:
-        //            town.silverTowers.Add(newTower.GetComponent<SilverTowerScript>());
-        //            break;
-        //    }
-        //}
+        else
+        {
+            switch (m_CurrentMode)
+            {
+                case PlacementMode.Mode_Melee:
+                    town.attackTowerMelees.Add(newTower.GetComponent<AttackTowerMeleeScript>());
+                    break;
+                case PlacementMode.Mode_Range:
+                    town.attackTowerRanges.Add(newTower.GetComponent<AttackTowerRangeScript>());
+                    break;
+                case PlacementMode.Mode_Gold:
+                    town.goldTowers.Add(newTower.GetComponent<GoldTowerScript>());
+                    break;
+                case PlacementMode.Mode_Silver:
+                    town.silverTowers.Add(newTower.GetComponent<SilverTowerScript>());
+                    break;
+            }
+        }
     }
 
     bool CheckPlacement(GameObject _TowerObj)

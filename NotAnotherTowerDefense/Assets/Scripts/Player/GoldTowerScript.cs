@@ -41,7 +41,7 @@ public class GoldTowerScript : MonoBehaviour
             if (payTimer <= 0)
             {
                 //pay town amount
-                MainTower.GetComponent<TownScript>().IncreaseSilver(towerDecorator.GetAmount);
+                MainTower.GetComponent<TownScript>().IncreaseGold(towerDecorator.GetAmount);
                 payTimer = towerDecorator.GetGenerationSpeed;
             }
             else

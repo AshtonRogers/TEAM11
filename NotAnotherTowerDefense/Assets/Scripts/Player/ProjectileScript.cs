@@ -7,7 +7,7 @@ public class ProjectileScript : MonoBehaviour
     public float projectileSpeed;
     public BoxCollider2D collider;
 
-    private float speedScale = 0.5f;
+    private float speedScale = 1.5f;
     private int projectileDamage;
     private GameObject targetEnemy;
 

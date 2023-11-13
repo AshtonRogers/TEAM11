@@ -42,6 +42,11 @@ public class TownScript : MonoBehaviour
         {
             int amount = 3 * level.m_CurrentWave;
             IncreaseSilver(amount);
+            silverCollectionTimer = 1.0f;
+        }
+        else
+        {
+            silverCollectionTimer -= Time.deltaTime;
         }
     }
 

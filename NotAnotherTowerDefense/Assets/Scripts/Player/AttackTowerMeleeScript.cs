@@ -19,7 +19,7 @@ public class AttackTowerMeleeScript : MonoBehaviour
 
     public bool isActive;
     public GameObject MainTower;
-    public BoxCollider2D rangeCollider;
+    public CircleCollider2D rangeCollider;
     private GameObject targetEnemy = null;
 
     AttackTowerDecorator towerDecorator = new BaseTower();
