@@ -9,7 +9,7 @@ public class FactoryEnemyDefault : EnemyFactory
 
     public override Enemy GetEnemy()
     {
-        Vector3 Temp = new Vector3(0f, 0f, 0f);
+        Vector3 Temp = new Vector3(0f, 6.5f, 0f);
         //GameObject newEnemyInstance = Instantiate(m_EnemyDefaultPrefab.gameObject, _Transform.position, _Transform.rotation);
         GameObject newEnemyInstance = Instantiate(m_EnemyDefaultPrefab.gameObject, Temp, Quaternion.identity);
         newEnemyInstance.tag = "Enemies";
