@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class AttackTowerRangeScript : MonoBehaviour
 {
     public SpriteRenderer spriteRender;
@@ -22,6 +23,8 @@ public class AttackTowerRangeScript : MonoBehaviour
     private GameObject targetEnemy = null;
 
     AttackTowerDecorator towerDecorator = new BaseTower();
+
+    [SerializeField] private GameObject playerController;
 
     // Start is called before the first frame update
     void Start()
@@ -156,7 +159,7 @@ public class AttackTowerRangeScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not Enough Resources");
+            playerController.GetComponent<PlayerController>().NotEnoughResourcesText();
         }
     }
 
@@ -182,7 +185,7 @@ public class AttackTowerRangeScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not Enough Resources");
+           playerController.GetComponent<PlayerController>().NotEnoughResourcesText();
         }
     }
 

@@ -22,6 +22,8 @@ public class SilverTowerScript : MonoBehaviour
 
     ResourceTowerDecorator towerDecorator = new ResourceBaseTower();
 
+    [SerializeField] private GameObject playerController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -113,7 +115,7 @@ public class SilverTowerScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not Enough Resources");
+            playerController.GetComponent<PlayerController>().NotEnoughResourcesText();
         }
     }
 
@@ -139,7 +141,7 @@ public class SilverTowerScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not Enough Resources");
+           playerController.GetComponent<PlayerController>().NotEnoughResourcesText();
         }
     }
 

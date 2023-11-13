@@ -24,6 +24,8 @@ public class AttackTowerMeleeScript : MonoBehaviour
 
     AttackTowerDecorator towerDecorator = new BaseTower();
 
+    [SerializeField] private GameObject playerController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -172,7 +174,7 @@ public class AttackTowerMeleeScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not Enough Resources");
+            playerController.GetComponent<PlayerController>().NotEnoughResourcesText();
         }
     }
 
@@ -198,7 +200,7 @@ public class AttackTowerMeleeScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not Enough Resources");
+            playerController.GetComponent<PlayerController>().NotEnoughResourcesText();
         }
     }
 

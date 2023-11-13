@@ -32,7 +32,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Button m_CloseButton;
     [SerializeField] private GameObject m_Panel;
 
-    private bool m_IsPlacing = false;
+    [SerializeField] private TextMeshProUGUI m_ResourceText;
+    private float m_ResourceTextTimer = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -94,6 +95,15 @@ public class PlayerController : MonoBehaviour
                 town.attackTowerRanges[i].PayCost();
             }
         }
+
+        if (m_ResourceTextTimer <= 0.0f)
+        {
+            m_ResourceText.text = " ";
+        }
+        else
+        {
+            m_ResourceTextTimer -= Time.deltaTime;
+        }
     }
 
     void PlaceTower(PlacementMode _Mode)
@@ -123,7 +133,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (CheckResources() == false)
         {
-            Debug.Log("not enough resoruces");
+            NotEnoughResourcesText();
             Destroy(newTower);
         }
         else
@@ -251,5 +261,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
+    public void NotEnoughResourcesText()
+    {
+        m_ResourceText.text = "Not Enough Resources";
+        m_ResourceTextTimer = 1.0f;
+    }
 }

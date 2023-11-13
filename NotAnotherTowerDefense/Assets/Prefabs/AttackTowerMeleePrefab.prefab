@@ -105,6 +105,7 @@ MonoBehaviour:
   isActive: 0
   MainTower: {fileID: 0}
   rangeCollider: {fileID: 1212498891}
+  playerController: {fileID: 0}
 --- !u!61 &1212498888
 BoxCollider2D:
   m_ObjectHideFlags: 0
