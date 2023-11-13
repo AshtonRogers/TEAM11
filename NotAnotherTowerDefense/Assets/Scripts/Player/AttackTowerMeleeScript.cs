@@ -107,7 +107,7 @@ public class AttackTowerMeleeScript : MonoBehaviour
         GameObject[] enemies;
         enemies = GameObject.FindGameObjectsWithTag("Enemies");
 
-        //Debug.Log(enemies.Length);
+        Debug.Log(enemies.Length);
 
         GameObject closestEnemy = null;
         Vector3 startPosition = MainTower.transform.position;
@@ -118,7 +118,7 @@ public class AttackTowerMeleeScript : MonoBehaviour
         {
             if (rangeCollider.bounds.Intersects(enemy.GetComponent<BoxCollider2D>().bounds))
             {
-                //Debug.Log("in collider");
+                Debug.Log("in collider");
 
                 Vector3 vecDistance = enemy.transform.position - startPosition;
                 float currentDistance = vecDistance.magnitude;

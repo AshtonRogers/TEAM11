@@ -13,7 +13,7 @@ public interface AttackTowerDecorator
 public class BaseTower : AttackTowerDecorator
 {
     float attackSpeed = 4.0f;
-    int damage = 1;
+    int damage = 7;
     int resourceCost = 1;
 
 

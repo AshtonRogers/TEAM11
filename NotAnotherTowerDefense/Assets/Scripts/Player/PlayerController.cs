@@ -61,22 +61,22 @@ public class PlayerController : MonoBehaviour
 
         for(int i = 0; i < maxSize; i++)
         {
-            if(goldLength < i)
+            if(goldLength < i && goldLength != 0)
             {
                 town.goldTowers[i].PayCost();
             }
 
-            if (silverLength < i)
+            if (silverLength < i && silverLength != 0)
             {
                 town.silverTowers[i].PayCost();
             }
 
-            if (meleeLength < i)
+            if (meleeLength < i && meleeLength != 0 )
             {
                 town.attackTowerMelees[i].PayCost();
             }
 
-            if (rangeLength < i)
+            if (rangeLength < i && rangeLength != 0 )
             {
                 town.attackTowerRanges[i].PayCost();
             }

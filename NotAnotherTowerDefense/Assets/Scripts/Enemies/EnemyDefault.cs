@@ -43,6 +43,12 @@ public class EnemyDefault : MonoBehaviour, Enemy
         if (m_Health > 0)
         {
             Debug.Log(m_Health - _IncomingDmg);
+
+            if (m_Health - _IncomingDmg <= 0)
+            {
+                Destroy(gameObject);
+            }
+
             return m_Health - _IncomingDmg;
         }
         else
@@ -67,6 +73,7 @@ public class EnemyDefault : MonoBehaviour, Enemy
 
         if (m_Health <= 0)
         {
+            Debug.Log("should be dead");
             Destroy(gameObject);
         }
     }
