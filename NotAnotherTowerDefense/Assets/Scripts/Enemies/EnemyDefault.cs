@@ -8,7 +8,7 @@ public class EnemyDefault : MonoBehaviour, Enemy
     public string EnemyName = "Enemy Default";
     public int m_Value = 1;
     public int m_Health = 6;
-    public float m_Speed  = 1;
+    public float m_Speed  = 0.5f;
     public int m_Damage = 5;
     private bool isActive = false;
     [SerializeField] private GameObject m_TowerRef;

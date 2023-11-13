@@ -73,11 +73,17 @@ public class GoldTowerScript : MonoBehaviour
         }
     }
 
+    public void SetActive(bool active)
+    {
+        isActive = active;
+    }
 
     public void UpgradeGenerationSpeedButton()
     {
         if (MainTower.GetComponent<TownScript>().VerifySilver(upgradeCost))
         {
+            MainTower.GetComponent<TownScript>().IncreaseSilver(-upgradeCost);
+
             UpgradeGenerationSpeed();
             UpgradeResourceCost();
             upgradeLevel++;
@@ -102,6 +108,8 @@ public class GoldTowerScript : MonoBehaviour
     {
         if (MainTower.GetComponent<TownScript>().VerifySilver(upgradeCost))
         {
+            MainTower.GetComponent<TownScript>().IncreaseSilver(-upgradeCost);
+
             UpgradeAmount();
             UpgradeResourceCost();
             upgradeLevel++;

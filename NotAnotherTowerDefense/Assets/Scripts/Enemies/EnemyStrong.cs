@@ -8,7 +8,7 @@ public class EnemyStrong : MonoBehaviour, Enemy
     public string EnemyName = "Enemy Strong";
     private int m_Value = 3;
     private int m_Health = 15;
-    private float m_Speed = 0.7f;
+    private float m_Speed = 0.3f;
     private int m_Damage = 10;
     private bool isActive = false;
     [SerializeField] private GameObject m_TowerRef;

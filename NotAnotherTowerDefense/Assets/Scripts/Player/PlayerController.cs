@@ -108,21 +108,30 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(newTower);
         }
+        else if (CheckResources() == false)
+        {
+            Debug.Log("not enough resoruces");
+            Destroy(newTower);
+        }
         else
         {
             switch (m_CurrentMode)
             {
                 case PlacementMode.Mode_Melee:
                     town.attackTowerMelees.Add(newTower.GetComponent<AttackTowerMeleeScript>());
+                    newTower.GetComponent<AttackTowerMeleeScript>().SetActive(true);
                     break;
                 case PlacementMode.Mode_Range:
                     town.attackTowerRanges.Add(newTower.GetComponent<AttackTowerRangeScript>());
+                    newTower.GetComponent<AttackTowerRangeScript>().SetActive(true);
                     break;
                 case PlacementMode.Mode_Gold:
                     town.goldTowers.Add(newTower.GetComponent<GoldTowerScript>());
+                    newTower.GetComponent<GoldTowerScript>().SetActive(true);
                     break;
                 case PlacementMode.Mode_Silver:
                     town.silverTowers.Add(newTower.GetComponent<SilverTowerScript>());
+                    newTower.GetComponent<SilverTowerScript>().SetActive(true);
                     break;
             }
         }
@@ -155,6 +164,17 @@ public class PlayerController : MonoBehaviour
 
 
         return true;
+    }
+
+    bool CheckResources()
+    {
+        if(town.GetComponent<TownScript>().VerifyGold(25))
+        {
+            town.GetComponent<TownScript>().IncreaseGold(-25);
+            return true;
+        }
+
+        return false;
     }
 
     void CheckForKeyInput()

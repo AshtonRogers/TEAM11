@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TownScript : MonoBehaviour
 {
     //currency
-    public int gold = 0;
+    public int gold = 100;
     public int silver = 0;
 
     private float silverCollectionTimer = 1.0f;

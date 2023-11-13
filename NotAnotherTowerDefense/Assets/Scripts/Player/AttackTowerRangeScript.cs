@@ -117,11 +117,17 @@ public class AttackTowerRangeScript : MonoBehaviour
         return closestEnemy;
     }
 
+    public void SetActive(bool active)
+    {
+        isActive = active;
+    }
 
     public void UpgradeAttackSpeedButton()
     {
         if (MainTower.GetComponent<TownScript>().VerifyGold(upgradeCost))
         {
+            MainTower.GetComponent<TownScript>().IncreaseGold(-upgradeCost);
+
             UpgradeAttackSpeed();
             UpgradeResourceCost();
             upgradeLevel++;
@@ -146,6 +152,8 @@ public class AttackTowerRangeScript : MonoBehaviour
     {
         if (MainTower.GetComponent<TownScript>().VerifyGold(upgradeCost))
         {
+            MainTower.GetComponent<TownScript>().IncreaseGold(-upgradeCost);
+
             UpgradeDamage();
             UpgradeResourceCost();
             upgradeLevel++;
@@ -165,7 +173,6 @@ public class AttackTowerRangeScript : MonoBehaviour
             Debug.Log("Not Enough Resources");
         }
     }
-
 
     protected void UpgradeAttackSpeed()
     {

@@ -11,8 +11,8 @@ public interface ResourceTowerDecorator
 
 public class ResourceBaseTower : ResourceTowerDecorator
 {
-    float generationSpeed = 4.0f;
-    int amount = 1;
+    float generationSpeed = 2.0f;
+    int amount = 5;
     int resourceCost = 1;
 
 
