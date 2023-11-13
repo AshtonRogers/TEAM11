@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 enum PlacementMode
 {
@@ -22,6 +23,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject m_MeleeTowerRef;
     [SerializeField] private GameObject m_GoldTowerRef;
     [SerializeField] private GameObject m_SilverTowerRef;
+
+    [SerializeField] private Button m_Button1;
+    [SerializeField] private Button m_Button2;
+    [SerializeField] private Button m_Button3;
 
     private bool m_IsPlacing = false;
 
@@ -177,6 +182,47 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
+    void SelectTower()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+        if (hit) //Valid Selection of a tower 
+        {
+            Debug.Log(hit.collider.gameObject.name);
+            GameObject currentSelection = hit.collider.gameObject; //Setting the Game Obj Ref
+
+            //Enabling the Buttons 
+            m_Button1.GetComponent<Button>().enabled = true;
+            m_Button1.GetComponent<Image>().enabled = true;
+
+            m_Button2.GetComponent<Button>().enabled = true;
+            m_Button2.GetComponent<Image>().enabled = true;
+
+            m_Button3.GetComponent<Button>().enabled = true;
+            m_Button3.GetComponent<Image>().enabled = true;
+
+            if (currentSelection.name == "AttackTowerMeleePrefab(Clone)")
+            {
+                Debug.Log("Melee Tower Selected");
+
+                //currentSelection.GetComponent<AttackTowerRangeScript>()..
+            }
+        }
+        else
+        {
+            //Disabling the Buttons on Deslection of tower 
+            m_Button1.GetComponent<Button>().enabled = false;
+            m_Button1.GetComponent<Image>().enabled = false;
+
+            m_Button2.GetComponent<Button>().enabled = false;
+            m_Button2.GetComponent<Image>().enabled = false;
+
+            m_Button3.GetComponent<Button>().enabled = false;
+            m_Button3.GetComponent<Image>().enabled = false;
+        }
+
+    }
+
     void CheckForKeyInput()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1)) //Placing Melee
@@ -195,5 +241,13 @@ public class PlayerController : MonoBehaviour
         {
             PlaceTower(PlacementMode.Mode_Silver);
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("mOUS SELECT");
+            SelectTower();
+        }
     }
+
+    
 }
