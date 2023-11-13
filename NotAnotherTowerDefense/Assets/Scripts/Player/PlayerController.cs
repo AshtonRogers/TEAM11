@@ -70,25 +70,25 @@ public class PlayerController : MonoBehaviour
 
         for(int i = 0; i < maxSize; i++)
         {
-            if (goldLength >= i && goldLength > 0)
+            if (town.goldTowers.Count > i && goldLength > 0)
             {
                 Debug.Log("Gold Upkeep Taken");
                 town.goldTowers[i].PayCost();
             }
 
-            if (silverLength >= i && silverLength > 0)
+            if (town.silverTowers.Count > i && silverLength > 0)
             {
                 Debug.Log("Silver Upkeep Taken");
                 town.silverTowers[i].PayCost();
             }
 
-            if (meleeLength >= i && meleeLength > 0)
+            if (town.attackTowerMelees.Count > i && meleeLength > 0)
             {
                 Debug.Log("Melee Upkeep Taken");
                 town.attackTowerMelees[i].PayCost();
             }
 
-            if (rangeLength >= i && rangeLength > 0)
+            if (town.attackTowerRanges.Count > i && rangeLength > 0)
             {
                 Debug.Log("Range Upkeep Taken");
                 town.attackTowerRanges[i].PayCost();
