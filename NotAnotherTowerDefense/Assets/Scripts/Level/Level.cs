@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class Level : MonoBehaviour
 {
+    //Enemy Spawning
     public Transform m_EnemySpawn;
     [SerializeField] EnemyFactory[] m_EnemyFactories;
     private EnemyFactory m_CurrentFactory;
 
+    //UI Text
     [SerializeField] private Text m_HealthText;
     [SerializeField] private Text m_LevelText;
 
