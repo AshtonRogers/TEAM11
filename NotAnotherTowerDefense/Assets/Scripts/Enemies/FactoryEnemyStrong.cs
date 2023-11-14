@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FactoryEnemyStrong : EnemyFactory
 {
+    //Enemy Factory for Creating the "Strong Enemy Type"
 
     [SerializeField] public EnemyStrong m_EnemyDefaultPrefab;
 

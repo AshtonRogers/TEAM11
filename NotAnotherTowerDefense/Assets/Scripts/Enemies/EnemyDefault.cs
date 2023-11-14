@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyDefault : MonoBehaviour, Enemy
 {
-    //Enemy Varibles - PG
+    //Enemy Varibles 
     public string EnemyName = "Enemy Default";
     public int m_Value = 1;
     public int m_Health = 6;

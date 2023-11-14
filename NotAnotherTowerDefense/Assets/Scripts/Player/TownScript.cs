@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class TownScript : MonoBehaviour
 {
@@ -35,6 +35,8 @@ public class TownScript : MonoBehaviour
         //Updating UI Text
         m_GoldText.text = gold.ToString();
         m_SilverText.text = silver.ToString();
+
+        CheckIfWon(); //Checking if the Game is Over
     }
 
     //claim the silver that the town produces
@@ -159,5 +161,14 @@ public class TownScript : MonoBehaviour
             Destroy(collision.gameObject);
 
         }
+    }
+
+    void CheckIfWon()
+    {
+        if (gold >= 1000)
+        {
+            SceneManager.LoadScene("WonMenu");
+        }
+       
     }
 }

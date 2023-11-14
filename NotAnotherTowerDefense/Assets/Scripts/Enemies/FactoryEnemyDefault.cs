@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FactoryEnemyDefault : EnemyFactory
 {
-
+    //Enemy Factory for Creating the "Default Enemy Type"
     [SerializeField] public EnemyDefault m_EnemyDefaultPrefab;
 
     public override Enemy GetEnemy()

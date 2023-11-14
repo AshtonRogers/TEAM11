@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FactoryEnemyFast : EnemyFactory
 {
-
+    //Enemy Factory for Creating the "Fast Enemy Type"
     [SerializeField] public EnemyFast m_EnemyDefaultPrefab;
 
     public override Enemy GetEnemy()
