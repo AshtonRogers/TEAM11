@@ -57,6 +57,7 @@ public class AttackTowerMeleeScript : MonoBehaviour
         }
     }
 
+    //pay the upkeep cost of the tower
     public void PayCost()
     {
         if(isActive)
@@ -81,6 +82,7 @@ public class AttackTowerMeleeScript : MonoBehaviour
         }
     }
 
+    //attack the enemy
     protected void HitEnemy()
     {
         Enemy iDamage = targetEnemy.GetComponent<Enemy>();
@@ -92,6 +94,7 @@ public class AttackTowerMeleeScript : MonoBehaviour
         }
     }
 
+    //search for a target in the world
     protected void SearchForTarget()
     {
         targetEnemy = FindClosestTarget();
@@ -106,6 +109,7 @@ public class AttackTowerMeleeScript : MonoBehaviour
         }
     }
 
+    //find the closest target that is in the towers range
     protected GameObject FindClosestTarget()
     {
         GameObject[] enemies;
@@ -137,21 +141,25 @@ public class AttackTowerMeleeScript : MonoBehaviour
         return closestEnemy;
     }
 
+    //set the activity of the tower
     public void SetActive(bool active)
     {
         isActive = active;
     }
 
+    //change the activity of the tower
     public void ChangeActive()
     {
         SetActive(!isActive);
     }
 
+    //get the towers level
     public int GetTowerLevel()
     {
         return upgradeLevel;
     }
 
+    //function for the attack speed upgrade button
     public void UpgradeAttackSpeedButton()
     {
         if (MainTower.GetComponent<TownScript>().VerifyGold(upgradeCost))
@@ -177,7 +185,8 @@ public class AttackTowerMeleeScript : MonoBehaviour
             playerController.GetComponent<PlayerController>().NotEnoughResourcesText();
         }
     }
-
+    
+    //function for the damage upgrade button
     public void UpgradeDamageButton()
     {
         if (MainTower.GetComponent<TownScript>().VerifyGold(upgradeCost))
@@ -204,6 +213,7 @@ public class AttackTowerMeleeScript : MonoBehaviour
         }
     }
 
+    //upgrade the attack speed
     protected void UpgradeAttackSpeed()
     {
         Debug.Log("Upgraded Attack Speed");
@@ -211,6 +221,7 @@ public class AttackTowerMeleeScript : MonoBehaviour
         attackSpeedUpgrade.ApplyUpgrade(towerDecorator);
     }
 
+    //upgrade the damage
     protected void UpgradeDamage()
     {
         Debug.Log("Upgraded Damage");
@@ -218,6 +229,7 @@ public class AttackTowerMeleeScript : MonoBehaviour
         damageUpgrade.ApplyUpgrade(towerDecorator);
     }
 
+    //upgrade the cost
     protected void UpgradeResourceCost()
     {
         Debug.Log("Upgraded ResourceCost");

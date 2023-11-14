@@ -96,6 +96,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        //check the resource timer
         if (m_ResourceTextTimer <= 0.0f)
         {
             m_ResourceText.text = " ";
@@ -106,6 +107,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //place a tower based on position and input
     void PlaceTower(PlacementMode _Mode)
     {
         m_CurrentMode = _Mode;
@@ -160,6 +162,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //check if the placement position is valid
     bool CheckPlacement(GameObject _TowerObj)
     {
         
@@ -189,6 +192,7 @@ public class PlayerController : MonoBehaviour
         return true;
     }
 
+    //check there is enough resources to place
     bool CheckResources()
     {
         if(town.GetComponent<TownScript>().VerifyGold(25))
@@ -200,6 +204,7 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
+    //select the towers
     void SelectTower()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -235,6 +240,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //check of a player key input
     void CheckForKeyInput()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1)) //Placing Melee
@@ -254,13 +260,13 @@ public class PlayerController : MonoBehaviour
             PlaceTower(PlacementMode.Mode_Silver);
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)) //selecting towers
         {
-           
             SelectTower();
         }
     }
 
+    //set the not enough resources text
     public void NotEnoughResourcesText()
     {
         m_ResourceText.text = "Not Enough Resources";

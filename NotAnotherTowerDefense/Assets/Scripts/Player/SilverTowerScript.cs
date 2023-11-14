@@ -37,6 +37,7 @@ public class SilverTowerScript : MonoBehaviour
         
     }
 
+    //claim the silver produced by this tower
     public void ClaimSiliver()
     {
         if (isActive)
@@ -54,6 +55,7 @@ public class SilverTowerScript : MonoBehaviour
         }
     }
 
+    //pay the upkeep cost of this tower
     public void PayCost()
     {
         if(isActive)
@@ -78,21 +80,25 @@ public class SilverTowerScript : MonoBehaviour
         }
     }
 
+    //set this towers activity
     public void SetActive(bool active)
     {
         isActive = active;
     }
 
+    //change this towers activity
     public void ChangeActive()
     {
         SetActive(!isActive);
     }
 
+    //get the towers level
     public int GetTowerLevel()
     {
         return upgradeLevel;
     }
 
+    //the function for the speed upgrade button
     public void UpgradeGenerationSpeedButton()
     {
         if (MainTower.GetComponent<TownScript>().VerifyGold(upgradeCost))
@@ -119,6 +125,7 @@ public class SilverTowerScript : MonoBehaviour
         }
     }
 
+    //the function for the amount upgrade button
     public void UpgradeAmountButton()
     {
         if (MainTower.GetComponent<TownScript>().VerifyGold(upgradeCost))
@@ -145,6 +152,7 @@ public class SilverTowerScript : MonoBehaviour
         }
     }
 
+    //upgrade the generation speed
     protected void UpgradeGenerationSpeed()
     {
         Debug.Log("Upgraded Generation Speed");
@@ -152,6 +160,7 @@ public class SilverTowerScript : MonoBehaviour
         generationUpgrade.ApplyUpgrade(towerDecorator);
     }
 
+    //upgrade the amount
     protected void UpgradeAmount()
     {
         Debug.Log("Upgraded Amount");
@@ -159,6 +168,7 @@ public class SilverTowerScript : MonoBehaviour
         amountUpgrade.ApplyUpgrade(towerDecorator);
     }
 
+    //upgrade the cost of the upkeep
     protected void UpgradeResourceCost()
     {
         Debug.Log("Upgraded Resource Cost");

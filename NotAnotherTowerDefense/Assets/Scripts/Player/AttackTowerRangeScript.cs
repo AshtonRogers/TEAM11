@@ -56,6 +56,7 @@ public class AttackTowerRangeScript : MonoBehaviour
         }
     }
 
+    //loops the timer to pay the upkeep cost
     public void PayCost()
     {
         if(isActive)
@@ -80,6 +81,7 @@ public class AttackTowerRangeScript : MonoBehaviour
         }
     }
 
+    //shoot a projectile at the targeted enemy
     protected void ShootProjectile()
     {
         GameObject projectile =  Instantiate(Projectiles, transform);
@@ -88,7 +90,7 @@ public class AttackTowerRangeScript : MonoBehaviour
         projectile.GetComponent<ProjectileScript>().SetDamage(towerDecorator.GetDamage);
     }
 
-
+    //search for a target in the world
     protected void SearchForTarget()
     {
         targetEnemy = FindClosestTarget();
@@ -99,6 +101,7 @@ public class AttackTowerRangeScript : MonoBehaviour
         }
     }
 
+    //find the closest target in the world
     protected GameObject FindClosestTarget()
     {
         GameObject[] enemies;
@@ -122,21 +125,25 @@ public class AttackTowerRangeScript : MonoBehaviour
         return closestEnemy;
     }
 
+    //set the tower as active
     public void SetActive(bool active)
     {
         isActive = active;
     }
 
+    //change the towers active state
     public void ChangeActive()
     {
         SetActive(!isActive);
     }
 
+    //get the level of the tower
     public int GetTowerLevel()
     {
         return upgradeLevel;
     }
 
+    //the button function to upgrade the speed
     public void UpgradeAttackSpeedButton()
     {
         if (MainTower.GetComponent<TownScript>().VerifyGold(upgradeCost))
@@ -163,6 +170,7 @@ public class AttackTowerRangeScript : MonoBehaviour
         }
     }
 
+    //the buttons function to upgrade the damage
     public void UpgradeDamageButton()
     {
         if (MainTower.GetComponent<TownScript>().VerifyGold(upgradeCost))
@@ -189,6 +197,7 @@ public class AttackTowerRangeScript : MonoBehaviour
         }
     }
 
+    //upgrades the speed
     protected void UpgradeAttackSpeed()
     {
         Debug.Log("Upgraded Attack Speed");
@@ -196,6 +205,7 @@ public class AttackTowerRangeScript : MonoBehaviour
         attackSpeedUpgrade.ApplyUpgrade(towerDecorator);
     }
 
+    //upgrades the damage
     protected void UpgradeDamage()
     {
         Debug.Log("Upgraded Damage");
@@ -203,6 +213,7 @@ public class AttackTowerRangeScript : MonoBehaviour
         damageUpgrade.ApplyUpgrade(towerDecorator);
     }
 
+    //upgrades the cost
     protected void UpgradeResourceCost()
     {
         Debug.Log("Upgraded ResourceCost");

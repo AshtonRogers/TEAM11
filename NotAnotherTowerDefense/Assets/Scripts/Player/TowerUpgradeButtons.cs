@@ -32,6 +32,7 @@ public class TowerUpgradeButtons : MonoBehaviour
         
     }
 
+    //set the obejct that is selected
     public void SetSelectedObject(GameObject selected)
     {
         if(selected != null)
@@ -46,6 +47,7 @@ public class TowerUpgradeButtons : MonoBehaviour
         
     }
 
+    //set the text based off the selected tower
     private void SetText()
     {
         if (selectedObject.name == "AttackTowerMeleePrefab(Clone)")
@@ -118,6 +120,7 @@ public class TowerUpgradeButtons : MonoBehaviour
         }
     }
 
+    //clear the text
     private void ClearText()
     {
         m_Button1Text.text = " ";
@@ -126,6 +129,7 @@ public class TowerUpgradeButtons : MonoBehaviour
         m_TowerType.text = " ";
     }
 
+    //the function placed on the button for the speed upgrade
     public void DoSpeedUpgrade()
     {
         if (selectedObject.name == "AttackTowerMeleePrefab(Clone)")
@@ -148,6 +152,7 @@ public class TowerUpgradeButtons : MonoBehaviour
         SetText();
     }
 
+    //the function placed on the button for the damage or amount upgrade
     public void DoDamageOrAmountUpgrade()
     {
         if (selectedObject.name == "AttackTowerMeleePrefab(Clone)")
@@ -170,6 +175,7 @@ public class TowerUpgradeButtons : MonoBehaviour
         SetText();
     }
 
+    //the function placed on the button for the activity of the tower
     public void DoEnabledButton()
     {
         if (selectedObject.name == "AttackTowerMeleePrefab(Clone)")
@@ -192,6 +198,7 @@ public class TowerUpgradeButtons : MonoBehaviour
         SetText();
     }
 
+    //to close the upgrade menu
     public void CloseButtonPressed()
     {
         ClearText();

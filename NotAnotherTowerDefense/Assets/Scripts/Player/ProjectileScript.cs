@@ -46,11 +46,13 @@ public class ProjectileScript : MonoBehaviour
         }
     }
 
+    //sets the target for this particular projectile
     public void SetTarget(GameObject target)
     {
         targetEnemy = target;
     }
 
+    //sets the damage for this particular projectile
     public void SetDamage(int damage)
     {
         projectileDamage = damage;

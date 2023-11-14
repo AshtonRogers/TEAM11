@@ -37,6 +37,7 @@ public class TownScript : MonoBehaviour
         m_SilverText.text = silver.ToString();
     }
 
+    //claim the silver that the town produces
     public void ClaimTownSilver()
     {
         if(silverCollectionTimer <= 0.0f)
@@ -51,16 +52,19 @@ public class TownScript : MonoBehaviour
         }
     }
 
+    //increase the amount of gold
     public void IncreaseGold(int amount)
     {
         gold += amount;
     }
 
+    //increase the amount of silver
     public void IncreaseSilver(int amount)
     {
         silver += amount;
     }
 
+    //pay the silver upkeep amount
     public bool UpKeepAmount(int amount)
     {
         if(silver > amount)
@@ -74,6 +78,7 @@ public class TownScript : MonoBehaviour
         }
     }
 
+    //pay the gold upkeep amount, only used by the silver tower
     public bool UpKeepSilverAmount(int amount)
     {
         if(gold > amount)
@@ -87,23 +92,31 @@ public class TownScript : MonoBehaviour
         }
     }
 
+    //add a gold tower to the list
     public void AddGoldTower(GoldTowerScript tower)
     {
         goldTowers.Add(tower);
     }
+
+    //add a silver tower to the list
     public void AddSilverTower(SilverTowerScript tower)
     {
         silverTowers.Add(tower);
     }
+
+    //add a melee tower to the list
     public void AddMeleeTower(AttackTowerMeleeScript tower)
     {
         attackTowerMelees.Add(tower);
     }
+
+    //add a range tower to the list
     public void AddRangeTower(AttackTowerRangeScript tower)
     {
         attackTowerRanges.Add(tower);
     }
 
+    //verify the gold is enough for the amount
     public bool VerifyGold(int amount)
     {
         if(gold >= amount)
@@ -114,6 +127,7 @@ public class TownScript : MonoBehaviour
         return false;
     }
 
+    //verify the silver is enough for the amount
     public bool VerifySilver(int amount)
     {
         if(silver >= amount)
@@ -124,13 +138,11 @@ public class TownScript : MonoBehaviour
         return false;
     }
 
-
+    //when colliding with an enemy
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemies")
         {
-            
-
             Enemy iDamage = collision.gameObject.GetComponent<Enemy>();
 
             if (iDamage != null)

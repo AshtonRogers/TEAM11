@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+//attack tower decotator
 public interface AttackTowerDecorator
 {
     float GetAttackSpeed { get; }
@@ -10,10 +10,11 @@ public interface AttackTowerDecorator
     int GetResourceCost { get; }
 }
 
+//the base tower, the lowest teir of tower
 public class BaseTower : AttackTowerDecorator
 {
     float attackSpeed = 2.0f;
-    int damage = 7;
+    int damage = 5;
     int resourceCost = 1;
 
 
@@ -40,6 +41,8 @@ public class BaseTower : AttackTowerDecorator
     }
 }
 
+//the tower after upgrades have happened
+//changing the decorator to be the upgraded values
 public abstract class TowerUpgrade : AttackTowerDecorator
 {
     public AttackTowerDecorator towerDecorator;
@@ -74,6 +77,7 @@ public abstract class TowerUpgrade : AttackTowerDecorator
     }
 }
 
+//upgrade the attack speed
 public class AttackSpeedUpgrade : TowerUpgrade
 {
     float attackSpeed = 0.9f;
@@ -87,6 +91,7 @@ public class AttackSpeedUpgrade : TowerUpgrade
     }
 }
 
+//upgrade the damage
 public class DamageUpgrade : TowerUpgrade
 {
     int damage = 2;
@@ -100,6 +105,7 @@ public class DamageUpgrade : TowerUpgrade
     }
 }
 
+//upgrade the resource cost
 public class ResourceCostUpgrade : TowerUpgrade
 {
     int cost = 2;

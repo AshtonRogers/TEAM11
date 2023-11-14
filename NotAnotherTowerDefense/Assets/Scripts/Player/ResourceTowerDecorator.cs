@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//resource tower decorator
 public interface ResourceTowerDecorator
 {
     float GetGenerationSpeed { get; }
@@ -9,6 +11,7 @@ public interface ResourceTowerDecorator
     int GetResourceCost { get; }
 }
 
+//the most basic resource tower
 public class ResourceBaseTower : ResourceTowerDecorator
 {
     float generationSpeed = 2.0f;
@@ -39,6 +42,7 @@ public class ResourceBaseTower : ResourceTowerDecorator
     }
 }
 
+//an upgraded resource tower
 public abstract class ResourceTowerUpgrade : ResourceTowerDecorator
 {
     public ResourceTowerDecorator towerDecorator;
@@ -73,6 +77,7 @@ public abstract class ResourceTowerUpgrade : ResourceTowerDecorator
     }
 }
 
+//upgrades the generation speed
 public class GenerationUpgrade : ResourceTowerUpgrade
 {
     float generationSpeed = 0.9f;
@@ -86,6 +91,7 @@ public class GenerationUpgrade : ResourceTowerUpgrade
     }
 }
 
+//upgrades the amount
 public class AmountUpgrade : ResourceTowerUpgrade
 {
     int amount = 2;
@@ -99,6 +105,7 @@ public class AmountUpgrade : ResourceTowerUpgrade
     }
 }
 
+//upgrades the resource cost
 public class ResourceResourceCostUpgrade : ResourceTowerUpgrade
 {
     int cost = 2;
